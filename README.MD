@@ -37,4 +37,10 @@
 
 > 除非必须，一般情况下context都是用application context
 
+##代码分支规范
+
+>开发者不可直接在  master 上 直接开发或者提交代码。
+
+>应在master上 拉出 develop开发分支，然后每个开发者在 develop 上拉出自己的 feature_xxx_xxx分支，开发完毕后merge到develop，develop分支稳定且可靠后，在合并到master，这样做的目的是尽量避免master分支的代码回滚操作。
+
 ##整体工具类说明（要及时更新）
