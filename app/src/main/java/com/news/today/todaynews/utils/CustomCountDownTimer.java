@@ -1,4 +1,4 @@
-package com.news.today.todaynews;
+package com.news.today.todaynews.utils;
 
 import android.os.Handler;
 
@@ -43,6 +43,7 @@ public class CustomCountDownTimer implements Runnable{
 	private void start(){
 		isRun = true;
 		if (handler != null) {
+			//这里并非开了一个子线程，而是把runnable对象放入了消息队列中
 			handler.post(this);
 		}
 	}

@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    //业务相关
+    <color name="color_6eb92b">#6eb92b</color>
+    <color name="color_black_30">#4c000000</color>
+    <color name="color_ffffff">#ffffff</color>
+    <color name="color_f5e106">#f5e106</color>
 </resources>

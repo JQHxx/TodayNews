@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TodayNews</string>
+    <string name="str_splash_finish">跳过</string>
+    <string name="str_splash_count_down">%d秒</string>
 </resources>
