@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion Integer.valueOf(compile_sdk_version)
@@ -20,6 +21,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
     compile "$support_group:appcompat-v7:$support_version"
     //dagger2
     compile "$dagger_group:dagger:$dagger_version"
@@ -30,4 +32,8 @@ dependencies {
     annotationProcessor "$dagger_group:dagger-android-processor:$dagger_version"
     //okhttp
     compile "$okhttp_group:okhttp:$okhttp_version"
+    //butterknife
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile project(':mvp')
 }

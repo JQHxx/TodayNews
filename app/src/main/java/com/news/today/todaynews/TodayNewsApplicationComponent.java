@@ -1,6 +1,7 @@
 package com.news.today.todaynews;
 
 
+import com.news.today.todaynews.edgesys.dagger.IEdgesysModule;
 
 import javax.inject.Singleton;
 
@@ -13,6 +14,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Singleton
 @Component(modules = {
         AndroidSupportInjectionModule.class,//项目中用support的fragment
+        IEdgesysModule.class,
 })
 public interface TodayNewsApplicationComponent {
     void inject(TodayNewsApplication application);

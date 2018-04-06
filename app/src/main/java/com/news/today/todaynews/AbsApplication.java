@@ -5,6 +5,8 @@ import android.app.Application;
 import android.app.Service;
 import android.support.v4.app.Fragment;
 
+import com.news.today.todaynews.helper.ContextHelper;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
@@ -30,6 +32,7 @@ public abstract class AbsApplication extends Application implements HasActivityI
     @Override
     public void onCreate() {
         super.onCreate();
+        ContextHelper.init(this);
         doInject();
         afterInject();
     }
