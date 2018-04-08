@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.news.today.mvp.base.BaseMvpActivity;
+import com.news.today.task.lf.IGroup;
 import com.news.today.todaynews.AbsApplication;
 
 import javax.inject.Inject;
@@ -23,7 +24,7 @@ import dagger.android.support.HasSupportFragmentInjector;
  * Created by anson on 2018/4/5.
  */
 
-public abstract class DaggerMvpActivity extends BaseMvpActivity implements HasSupportFragmentInjector {
+public abstract class DaggerMvpActivity extends BaseMvpActivity implements HasSupportFragmentInjector,IGroup {
 
     //dagger 使用mvp
     @Inject

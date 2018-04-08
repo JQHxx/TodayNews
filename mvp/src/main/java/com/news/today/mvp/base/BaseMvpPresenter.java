@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.news.today.mvp.MvpControler;
-import com.news.today.mvp.lf.IGroup;
 import com.news.today.mvp.lf.presenter.ILifeCyclePresenter;
 import com.news.today.mvp.lf.view.IMvpView;
 
@@ -59,17 +58,7 @@ public abstract class BaseMvpPresenter<T extends IMvpView> implements ILifeCycle
         return view;
     }
 
-    @Override
-    public String groupName() {
-        T view = getView();
-        return ((IGroup) view).groupName();
-    }
 
     protected abstract T getEmptyView();
 
-
-//    public String getDefaultTaskName() {
-
-//        return TraceUtil.getTaskNameFromTrace(Thread.currentThread().getStackTrace(), 4);
-//    }
 }

@@ -37,7 +37,7 @@ public class SplashActivity extends DaggerMvpActivity implements ISplashContract
 
     @Override
     public int getRootLayoutId() {
-        return 0;
+        return R.layout.activity_splash;
     }
 
     @Override

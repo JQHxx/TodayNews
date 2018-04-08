@@ -3,14 +3,13 @@ package com.news.today.mvp.lf.presenter;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.news.today.mvp.lf.IGroup;
 import com.news.today.mvp.lf.view.IMvpView;
 
 /**
  * Created by anson on 2018/4/5.
  */
 
-public interface ILifeCyclePresenter extends IGroup{
+public interface ILifeCyclePresenter {
 
     void initParam(Bundle var1);
 

@@ -5,12 +5,13 @@ import android.os.Bundle;
 
 import com.news.today.mvp.base.BaseMvpPresenter;
 import com.news.today.mvp.lf.view.IMvpView;
+import com.news.today.task.lf.IGroup;
 
 /**
  * Created by anson on 2018/4/6.
  */
 
-public abstract class DaggerMvpPresenter<T extends IMvpView> extends BaseMvpPresenter<T>{
+public abstract class DaggerMvpPresenter<T extends IMvpView> extends BaseMvpPresenter<T> implements IGroup{
 
     public DaggerMvpPresenter(T view) {
         super(view);
@@ -75,6 +76,12 @@ public abstract class DaggerMvpPresenter<T extends IMvpView> extends BaseMvpPres
     @Override
     public void onActivityResult(int var1, int var2, Intent var3) {
 
+    }
+
+    @Override
+    public String groupName() {
+        T view = getView();
+        return ((IGroup) view).groupName();
     }
 
 }

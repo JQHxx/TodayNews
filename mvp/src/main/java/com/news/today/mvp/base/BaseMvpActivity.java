@@ -8,14 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.news.today.mvp.MvpControler;
 import com.news.today.mvp.lf.view.IBindView;
-import com.news.today.mvp.lf.IGroup;
 import com.news.today.mvp.lf.view.IMvpView;
 
 /**
  * Created by anson on 2018/4/5.
  */
 
-public abstract class BaseMvpActivity extends AppCompatActivity implements IMvpView,IBindView ,IGroup{
+public abstract class BaseMvpActivity extends AppCompatActivity implements IMvpView,IBindView {
     private MvpControler mvpControler;
 
     public BaseMvpActivity() {
