@@ -1,18 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.news.today.todaynews.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.base.mydrayerlayout.MyDrawLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--内容  区域-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/fake"
+            />
+        <!--侧滑区域  LinearLayout    ColorDrawable -->
+        <!--  android:background="@drawable/meinv"-->
+        <!-- android:background="@color/colorPrimaryDark"-->
+        <com.base.mydrayerlayout.MyDrawSideView
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:maxTranslationX="66dp"
+            android:background="@drawable/meinv"
+            >
+            <TextView
+                style="@style/MenuText"
+                android:drawableLeft="@drawable/circle"
+                android:text="朋友圈" />
 
-</android.support.constraint.ConstraintLayout>
+            <TextView
+                style="@style/MenuText"
+                android:drawableLeft="@drawable/wallet"
+                android:text="钱包" />
+
+            <TextView
+                style="@style/MenuText"
+                android:drawableLeft="@drawable/coupon"
+                android:text="优惠券" />
+
+
+        </com.base.mydrayerlayout.MyDrawSideView>
+
+
+    </com.base.mydrayerlayout.MyDrawLayout>
+
+</RelativeLayout>
