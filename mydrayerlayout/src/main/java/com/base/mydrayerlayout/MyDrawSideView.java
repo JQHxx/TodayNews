@@ -94,10 +94,15 @@ public class MyDrawSideView extends LinearLayout {
             motionListener.onCancel();
         }
     }
-
+    /**
+     * 子view偏移监听设置
+     */
     public void setItemListener(ItemListener listener) {
         this.mListener = listener;
     }
+    /**
+     * 子view选中状态监听设置
+     */
     public void setOnMotionListener(onMotionListener motionListener) {
         this.motionListener = motionListener;
     }
