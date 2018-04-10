@@ -23,6 +23,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:maxTranslationX="66dp"
+            android:gravity="center_vertical"
             android:background="@drawable/meinv"
             >
             <LinearLayout
@@ -63,7 +64,15 @@
                 android:drawableLeft="@drawable/coupon"
                 android:text="优惠券" />
 
+            <TextView
+                style="@style/MenuText"
+                android:drawableLeft="@drawable/friends"
+                android:text="好友" />
 
+            <TextView
+                style="@style/MenuText"
+                android:drawableLeft="@drawable/settings"
+                android:text="设置" />
         </com.base.mydrayerlayout.MyDrawSideBar>
 
 

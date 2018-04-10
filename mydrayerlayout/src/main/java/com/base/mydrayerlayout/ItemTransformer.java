@@ -33,7 +33,7 @@ public class ItemTransformer implements ItemListener{
 
         //计算子控件偏移距离
         float scale=distance/sideBar.getHeight()*3;//3   放大系数  距离中心点距离与 sideBar 的 1/3 对比
-        translationX=maxTranslationX * (1f - scale);
-        itemView.setTranslationX(translationX );
+        translationX=Math.max(0,maxTranslationX * (1f - scale));
+        itemView.setTranslationX(translationX * slideOffset);
     }
 }
