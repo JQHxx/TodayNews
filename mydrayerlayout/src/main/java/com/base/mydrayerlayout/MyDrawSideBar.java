@@ -16,18 +16,18 @@ import android.widget.LinearLayout;
  * 另外是在手指松开的时候，会去判断调用哪一个子控件的触摸方法（只根据 Y 进行判断，没有进行 X 的处理）。
  */
 
-public class MyDrawSideView extends LinearLayout {
+public class MyDrawSideBar extends LinearLayout {
     private boolean opened = false;
     //子控件的最大偏移量
     private float maxTranslationX;
 
     private ItemListener mListener;
     private onMotionListener motionListener;
-    public MyDrawSideView(Context context) {
+    public MyDrawSideBar(Context context) {
         this(context, null);
     }
 
-    public MyDrawSideView(Context context, @Nullable AttributeSet attrs) {
+    public MyDrawSideBar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
@@ -66,12 +66,11 @@ public class MyDrawSideView extends LinearLayout {
                 if (motionListener == null || !motionListener.onHover(child, i)) {
                     child.setPressed(true);
                 }
-                //回调调用层
-                mListener.apply((ViewGroup) getParent(), child, y, percent);
+
             }
-
+            //回调调用层
+            mListener.apply((ViewGroup) getParent(), child, y, percent);
         }
-
         if (opened && !found && motionListener != null) {
             motionListener.onHover(null, -1);
         }

@@ -11,25 +11,25 @@ import android.widget.RelativeLayout;
 
 public class SideBgLayout extends RelativeLayout{
     //侧滑控件
-    private  MyDrawSideView mDrawSideView;
+    private MyDrawSideBar mDrawSideView;
     //背景控件
-    private SideBgView mBgView;
-    public SideBgLayout(MyDrawSideView myDrawSideView) {
-        super(myDrawSideView.getContext());
-        init(myDrawSideView);
+    private SideBgView    mBgView;
+    public SideBgLayout(MyDrawSideBar myDrawSideBar) {
+        super(myDrawSideBar.getContext());
+        init(myDrawSideBar);
     }
 
-    private void init(MyDrawSideView myDrawSideView) {
-        this.mDrawSideView=myDrawSideView;
+    private void init(MyDrawSideBar myDrawSideBar) {
+        this.mDrawSideView= myDrawSideBar;
         //把SideBgView的 宽高移交给外部的SideBgLayout
-        setLayoutParams(myDrawSideView.getLayoutParams());
+        setLayoutParams(myDrawSideBar.getLayoutParams());
         //背景添加进去
         mBgView = new SideBgView(getContext());
         addView(mBgView,0,new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         //把把SideBgView  的背景颜色取出来    设置给 SideBgLayout   SideBgView弄成透明
         mBgView.setDrawable(mDrawSideView.getBackground());
         mDrawSideView.setBackgroundColor(Color.TRANSPARENT);
-        addView(myDrawSideView,new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        addView(myDrawSideBar,new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
     }
 
     /**
@@ -38,8 +38,7 @@ public class SideBgLayout extends RelativeLayout{
      * @param slideOffset
      */
     public void setTouchY(float y, float slideOffset) {
-        mDrawSideView.setTouchY(y,slideOffset);
         mBgView.setTouchY(y, slideOffset);
-
+        mDrawSideView.setTouchY(y,slideOffset);
     }
 }

@@ -18,7 +18,7 @@
         <!--侧滑区域  LinearLayout    ColorDrawable -->
         <!--  android:background="@drawable/meinv"-->
         <!-- android:background="@color/colorPrimaryDark"-->
-        <com.base.mydrayerlayout.MyDrawSideView
+        <com.base.mydrayerlayout.MyDrawSideBar
             android:layout_width="200dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
@@ -41,7 +41,7 @@
                 android:text="优惠券" />
 
 
-        </com.base.mydrayerlayout.MyDrawSideView>
+        </com.base.mydrayerlayout.MyDrawSideBar>
 
 
     </com.base.mydrayerlayout.MyDrawLayout>
