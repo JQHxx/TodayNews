@@ -24,7 +24,7 @@
             android:layout_gravity="start"
             app:maxTranslationX="66dp"
             android:gravity="center_vertical"
-            android:background="@drawable/meinv"
+            android:background="@drawable/hai"
             >
             <LinearLayout
                 android:id="@+id/userInfo"
@@ -39,8 +39,7 @@
                     android:layout_height="110dp"
                     android:layout_margin="10dp"
                     android:src="@drawable/meinv"
-                    app:civ_border_color="@color/colorPrimaryDark"
-                    app:civ_border_width="2dp" />
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
