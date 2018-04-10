@@ -38,7 +38,7 @@ public class SideBgLayout extends RelativeLayout{
      * @param slideOffset
      */
     public void setTouchY(float y, float slideOffset) {
-        mBgView.setTouchY(y, slideOffset);
         mDrawSideView.setTouchY(y,slideOffset);
+        mBgView.setTouchY(y, slideOffset);
     }
 }
