@@ -1,18 +1,19 @@
 package com.news.today.todaynews;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.base.mydrayerlayout.ITouchUpListener;
 import com.base.mydrayerlayout.MyDrawLayout;
 import com.base.mydrayerlayout.MyDrawSideBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,10 +44,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUnbinder = ButterKnife.bind(this);
+        setListener();
     }
 
+    private void setListener() {
+        mMsBar.setITouchUpListener(new ITouchUpListener() {
+            @Override
+            public boolean onHover(@Nullable View view, int index) {
+                //Toast.makeText(MainActivity.this, "弹出", Toast.LENGTH_SHORT).show();
+                return false;
+            }
 
+            @Override
+            public boolean onSelect(View view, int index) {
+                Toast.makeText(MainActivity.this, String.format("%d selected", index), Toast.LENGTH_SHORT).show();
+                return false;
+            }
 
+            @Override
+            public void onCancel() {
+                Toast.makeText(MainActivity.this, "取消", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+/*
     @OnClick({R.id.iv_background, R.id.tv_friend_circle, R.id.tv_wallet, R.id.tv_coupon, R.id.tv_friends, R.id.tv_sets})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -68,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "设置", Toast.LENGTH_SHORT).show();
                 break;
         }
-    }
+    }*/
 
     @Override
     protected void onDestroy() {

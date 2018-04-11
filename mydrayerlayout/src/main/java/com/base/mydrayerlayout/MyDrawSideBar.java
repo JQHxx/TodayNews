@@ -21,8 +21,8 @@ public class MyDrawSideBar extends LinearLayout {
     //子控件的最大偏移量
     private float maxTranslationX;
 
-    private ItemListener mListener;
-    private onMotionListener motionListener;
+    private IStateListener   mListener;
+    private ITouchUpListener motionListener;
 
     public MyDrawSideBar(Context context) {
         this(context, null);
@@ -41,7 +41,7 @@ public class MyDrawSideBar extends LinearLayout {
         if (attrs != null) {
             TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.SideBar);
             maxTranslationX = typedArray.getDimension(R.styleable.SideBar_maxTranslationX, 0);
-            mListener = new ItemTransformer(maxTranslationX);
+            mListener = new IStateTransformer(maxTranslationX);
             typedArray.recycle();
         }
     }
@@ -62,15 +62,13 @@ public class MyDrawSideBar extends LinearLayout {
 
             boolean isHover = opened && y > child.getTop() && y < child.getBottom();
             if (isHover) {
-                if (motionListener == null || !motionListener.onHover(child, i)) {
-                    child.setPressed(true);
-                }
-
+                motionListener.onHover(child, i);
+                child.setPressed(true);
             }
             //回调调用层
             mListener.apply((ViewGroup) getParent(), child, y, percent);
         }
-        if (opened && motionListener != null) {
+        if (opened) {
             motionListener.onHover(null, -1);
         }
     }
@@ -83,27 +81,25 @@ public class MyDrawSideBar extends LinearLayout {
             View child = getChildAt(i);
             //要判断  y坐落在哪一个子控件    松手的那一刻  进行回调  跳转其他页面
             if (child.isPressed()) {
-                if (motionListener == null || !motionListener.onSelect(child, i)) {
-                   child.performClick();
-
-                }
+                motionListener.onSelect(child, i);
+                child.performClick();
             }
         }
-        if (motionListener != null) {
-            motionListener.onCancel();
-        }
+        motionListener.onCancel();
 
     }
+
     /**
      * 子view偏移监听设置
      */
-    public void setItemListener(ItemListener listener) {
+    public void setIStateListener(IStateListener listener) {
         this.mListener = listener;
     }
+
     /**
      * 子view选中状态监听设置
      */
-    public void setOnMotionListener(onMotionListener motionListener) {
+    public void setITouchUpListener(ITouchUpListener motionListener) {
         this.motionListener = motionListener;
     }
 

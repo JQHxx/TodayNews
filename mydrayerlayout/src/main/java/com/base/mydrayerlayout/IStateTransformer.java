@@ -9,10 +9,10 @@ import android.view.ViewGroup;
  * @ 创建时间 2018/4/9  16:55
  */
 
-public class ItemTransformer implements ItemListener{
+public class IStateTransformer implements IStateListener {
     private float maxTranslationX;
 
-    public ItemTransformer(float maxTranslationX) {
+    public IStateTransformer(float maxTranslationX) {
         this.maxTranslationX = maxTranslationX;
     }
     /**

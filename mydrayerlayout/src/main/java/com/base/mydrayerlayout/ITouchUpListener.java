@@ -9,7 +9,7 @@ import android.view.View;
  * @ 创建时间 2018/4/9  17:17
  */
 
-public interface onMotionListener {
+public interface ITouchUpListener {
     /**
      * View 处于 hover 状态
      *
