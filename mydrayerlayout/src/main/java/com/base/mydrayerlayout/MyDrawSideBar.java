@@ -23,6 +23,7 @@ public class MyDrawSideBar extends LinearLayout {
 
     private ItemListener mListener;
     private onMotionListener motionListener;
+
     public MyDrawSideBar(Context context) {
         this(context, null);
     }
@@ -55,14 +56,12 @@ public class MyDrawSideBar extends LinearLayout {
         //遍历全部子控件  给每一个子控件进行偏移
         //如果slideOffset =1   侧滑菜单全部出来了
         opened = percent == 1;
-        boolean found = false;
         for (int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
             child.setPressed(false);
 
             boolean isHover = opened && y > child.getTop() && y < child.getBottom();
             if (isHover) {
-                found = true;
                 if (motionListener == null || !motionListener.onHover(child, i)) {
                     child.setPressed(true);
                 }
@@ -71,7 +70,7 @@ public class MyDrawSideBar extends LinearLayout {
             //回调调用层
             mListener.apply((ViewGroup) getParent(), child, y, percent);
         }
-        if (opened && !found && motionListener != null) {
+        if (opened && motionListener != null) {
             motionListener.onHover(null, -1);
         }
     }
@@ -85,13 +84,15 @@ public class MyDrawSideBar extends LinearLayout {
             //要判断  y坐落在哪一个子控件    松手的那一刻  进行回调  跳转其他页面
             if (child.isPressed()) {
                 if (motionListener == null || !motionListener.onSelect(child, i)) {
-                    child.performClick();
+                   child.performClick();
+
                 }
             }
         }
         if (motionListener != null) {
             motionListener.onCancel();
         }
+
     }
     /**
      * 子view偏移监听设置
@@ -105,4 +106,6 @@ public class MyDrawSideBar extends LinearLayout {
     public void setOnMotionListener(onMotionListener motionListener) {
         this.motionListener = motionListener;
     }
+
+
 }

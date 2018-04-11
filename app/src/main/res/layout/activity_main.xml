@@ -7,27 +7,29 @@
     tools:context="com.news.today.todaynews.MainActivity">
 
     <com.base.mydrayerlayout.MyDrawLayout
+        android:id="@+id/ml_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <!--内容  区域-->
         <ImageView
+            android:id="@+id/iv_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/fake"
+            android:src="@drawable/img_fake"
             />
         <!--侧滑区域  LinearLayout    ColorDrawable -->
         <!--  android:background="@drawable/meinv"-->
         <!-- android:background="@color/colorPrimaryDark"-->
         <com.base.mydrayerlayout.MyDrawSideBar
+            android:id="@+id/ms_bar"
             android:layout_width="200dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:maxTranslationX="66dp"
             android:gravity="center_vertical"
-            android:background="@drawable/hai"
+            android:background="@drawable/bg_sea"
             >
             <LinearLayout
-                android:id="@+id/userInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -35,42 +37,49 @@
                 android:orientation="vertical">
 
                 <com.news.today.todaynews.CircleImageView
+                    android:id="@+id/cl_picture"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/meinv"
+                    android:src="@drawable/img_meinv"
                     />
 
                 <TextView
+                    android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="mzule"
+                    android:text="nice"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp" />
             </LinearLayout>
             <TextView
+                android:id="@+id/tv_friend_circle"
                 style="@style/MenuText"
-                android:drawableLeft="@drawable/circle"
+                android:drawableLeft="@drawable/ic_circle"
                 android:text="朋友圈" />
 
             <TextView
+                android:id="@+id/tv_wallet"
                 style="@style/MenuText"
-                android:drawableLeft="@drawable/wallet"
+                android:drawableLeft="@drawable/ic_wallet"
                 android:text="钱包" />
 
             <TextView
+                android:id="@+id/tv_coupon"
                 style="@style/MenuText"
-                android:drawableLeft="@drawable/coupon"
+                android:drawableLeft="@drawable/ic_coupon"
                 android:text="优惠券" />
 
             <TextView
+                android:id="@+id/tv_friends"
                 style="@style/MenuText"
-                android:drawableLeft="@drawable/friends"
+                android:drawableLeft="@drawable/ic_friends"
                 android:text="好友" />
 
             <TextView
+                android:id="@+id/tv_sets"
                 style="@style/MenuText"
-                android:drawableLeft="@drawable/settings"
+                android:drawableLeft="@drawable/ic_settings"
                 android:text="设置" />
         </com.base.mydrayerlayout.MyDrawSideBar>
 
