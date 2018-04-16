@@ -5,7 +5,10 @@ import android.os.Bundle;
 
 import com.news.today.mvp.base.BaseMvpPresenter;
 import com.news.today.mvp.lf.view.IMvpView;
+import com.news.today.task.AsyncTaskInstance;
+import com.news.today.task.helper.TaskHelper;
 import com.news.today.task.lf.IGroup;
+import com.news.today.todaynews.system.AbsTask;
 
 /**
  * Created by anson on 2018/4/6.
@@ -82,6 +85,11 @@ public abstract class DaggerMvpPresenter<T extends IMvpView> extends BaseMvpPres
     public String groupName() {
         T view = getView();
         return ((IGroup) view).groupName();
+    }
+
+
+    public <k,v> AsyncTaskInstance<k> submitTask(AbsTask<k,v> task) {
+        return TaskHelper.submitTask(groupName(),task,task );
     }
 
 }

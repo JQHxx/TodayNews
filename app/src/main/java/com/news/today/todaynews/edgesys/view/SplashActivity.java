@@ -58,6 +58,12 @@ public class SplashActivity extends DaggerMvpActivity implements ISplashContract
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    @Override
     public void showCountDownTime(String countDownTime) {
         mTextView.setText(countDownTime);
     }

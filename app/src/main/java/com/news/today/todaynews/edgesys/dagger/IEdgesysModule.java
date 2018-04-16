@@ -1,6 +1,7 @@
 package com.news.today.todaynews.edgesys.dagger;
 
 import com.news.today.todaynews.annotation.ActivityScope;
+import com.news.today.todaynews.edgesys.view.HttpTestActivity;
 import com.news.today.todaynews.edgesys.view.SplashActivity;
 
 import dagger.Module;
@@ -14,4 +15,8 @@ public abstract class IEdgesysModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = {SplashActivityProvide.class})
     public abstract SplashActivity buildSplashActivity();
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = {HttpTestActivityProvide.class})
+    public abstract HttpTestActivity buildHttpTestActivity();
 }

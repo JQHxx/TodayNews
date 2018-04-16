@@ -29,11 +29,10 @@ dependencies {
     compile "$dagger_group:dagger-android:$dagger_version"
     compile "$dagger_group:dagger-android-support:$dagger_version"
     annotationProcessor "$dagger_group:dagger-android-processor:$dagger_version"
-    //okhttp
-    compile "$okhttp_group:okhttp:$okhttp_version"
     //butterknife
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile project(':mvp')
     compile project(':task')
+    compile project(':http')
 }

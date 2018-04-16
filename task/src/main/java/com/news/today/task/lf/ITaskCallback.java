@@ -3,13 +3,13 @@ package com.news.today.task.lf;
 /**
  * Created by anson on 2018/4/6.
  */
-public interface ITaskCallback<T> {
+public interface ITaskCallback<Result> {
 
     void onBeforeCall();
 
     void onAfterCall();
 
-    void onComplete(T data);
+    void onComplete(Result data);
 
     void onException(Throwable t);
 

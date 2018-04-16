@@ -42,7 +42,7 @@ public class TaskHelper {
         taskScheduler.stopTaskOuter(taskInstance);
     }
 
-    public static AsyncTaskInstance submitTask(final String taskName, final String groupName,
+    private static AsyncTaskInstance submitTask(final String taskName, final String groupName,
                                                final ITaskBackground task, final ITaskCallback callback) {
         AsyncTaskInstance asyncTask;
         asyncTask = buildTask(taskName, groupName, task, callback);
