@@ -3,31 +3,30 @@ package com.news.today.http.parser;
 import android.text.TextUtils;
 
 import com.news.today.http.api.IApi;
-import com.news.today.http.builder.IRequest;
+import com.news.today.http.callback.IResponse;
+import com.news.today.http.exception.NetworkResultParserException;
 
 import java.lang.reflect.Type;
 
 /**
- * Created by yh on 2016/4/20.
+ * Created by anson on 2018/4/15.
  */
-public abstract class AbstractResultParse extends LfResultParese {
+public abstract class AbstractResultParse implements IResultParse {
 
     @Override
-    public IResult parseResult(IResponse response, IRequest request) {
-        IApi iApi = request.getApi();
+    public IResult parseResult(IResponse response, IApi iApi) {
         Type type = iApi.getResultType();
         String json = response.getBody();
         Result result = null;
         if (TextUtils.isEmpty(json)) {
-            return Result.fail(ResultCodes.CODE_NETWORKERROR);
+            return Result.failed(ResultCodes.CODE_NETWORKERROR);
         }
         result = parseResultCommon(json, type, iApi);
         if (result == null) {//返回结果为空
-            if (BuildHelper.isDebug()) {
-                KernalLog.network.e("request(%s)解析失败\n返回结果类型:%s", request.hashCode(), type);
-            }
+            // CODEREVIEW:  代码审核：  自定义异常
             throw new NetworkResultParserException();
         }
+
         return result;
     }
 

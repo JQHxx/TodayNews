@@ -1,14 +1,14 @@
-package com.news.today.todaynews.system.http;
+package com.news.today.http.parser;
 
 /**
- * 全局的ResultCode定义，若不是全局请不要放在这里
- * Created by ye on 2017/11/21.
+ * Created by anson on 2018/4/15.
  */
 public interface ResultCodes {
     /**
      * 异常code
      */
     String CODE_EXCEPTION = "_CODE_EXCEPTION";
+    String CODE_TASK_EXCEPTION = "_CODE_TASK_EXCEPTION";
 
     /**
      * 未定义code错误
@@ -19,8 +19,6 @@ public interface ResultCodes {
      * 任务被取消
      */
     String CODE_TASK_CANCELED = "_CODE_TASK_CANCELED";
-
-    String CODE_TASK_EXCEPTION = "_CODE_TASK_EXCEPTION";
 
     /**
      * 网络错误

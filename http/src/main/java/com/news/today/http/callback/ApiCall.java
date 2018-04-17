@@ -1,15 +1,15 @@
 package com.news.today.http.callback;
 
 
-import com.news.today.http.builder.IRequest;
+import com.news.today.http.api.IApi;
 import com.news.today.http.exception.NetWorkException;
 
 /**
- * http请求
+ * Created by anson on 2018/4/15.
  */
 public abstract class ApiCall implements ICall {
     private int status = STATUS_NEW;
-    private IRequest httpRequest;
+    private IApi api;
     private long beforeTime;
     private long befroreParseTime;
     private String url;
@@ -34,18 +34,14 @@ public abstract class ApiCall implements ICall {
         return befroreParseTime;
     }
 
-    public ApiCall(IRequest httpRequest) {
-        this.httpRequest = httpRequest;
+    public ApiCall(IApi api) {
+        this.api = api;
     }
 
-    @Override
-    public int getStatus() {
-        return status;
-    }
 
     @Override
-    public IRequest getRequest() {
-        return httpRequest;
+    public IApi getRequest() {
+        return api;
     }
 
     @Override
@@ -60,25 +56,11 @@ public abstract class ApiCall implements ICall {
         return false;
     }
 
-    @Override
-    public final void cancel() {
-        //正在运行则取消任务
-        if (status == STATUS_RUNNING) {
-            try {
-                doCancel();
-            } catch (Exception e) {
-                KernalLog.task.e(e);
-            }
-            status = STATUS_OVER;
-        }
-    }
 
     protected final void setReady() {
         //只有新建的任务才能成为准备好的任务
         if (status == STATUS_NEW) {
             status = STATUS_READY;
-        } else {
-            KernalLog.task.e("can't set ready to call,because call is not a new one");
         }
     }
 
@@ -89,8 +71,6 @@ public abstract class ApiCall implements ICall {
             status = STATUS_RUNNING;
             response = doExecute();
             status = STATUS_OVER;
-        } else {
-            KernalLog.task.e("can't execute,because call is not a ready one");
         }
         return response;
     }

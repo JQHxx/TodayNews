@@ -1,18 +1,18 @@
 package com.news.today.http.parser;
 
+import com.news.today.http.api.IApi;
+import com.news.today.http.callback.IResponse;
+
 /**
- * Created by yh on 2016/4/20.
+ * Created by anson on 2018/4/15.
  */
 public interface IResultParse {
     /**
      * 字符串解析成结果对象
      *
-     * @param response
      * @param request
      * @return
      */
-    IResult parseResult(IResponse response, IRequest request) throws RuntimeException;
+    IResult parseResult(IResponse response, IApi request) throws RuntimeException;
 
-    @Deprecated
-    IResult onException(ICall iCall, Exception e);
 }

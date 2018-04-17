@@ -4,83 +4,42 @@ import android.support.annotation.NonNull;
 
 import com.news.today.http.annotation.ContentType;
 import com.news.today.http.annotation.ParamType;
-import com.news.today.http.annotation.ParmBuildWay;
 import com.news.today.http.annotation.RequestMethod;
-import com.news.today.http.builder.IParamBuilder;
-import com.news.today.http.builder.IRequestBuilder;
 import com.news.today.http.parser.IResultParse;
 
 import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
- * Created by yh on 2016/4/15.
+ * Created by anson on 2018/4/17.
  */
 public interface IApi {
 
     //获取url
     @NonNull
     String getUrl();
-
+    //设置参数
+    void  setParams(Map<String,Object> params);
+    //获取参数
+    Map<String,Object> getParams();
     //请求方式
     @RequestMethod
     int getRequestMethod();
-
     //获取返回结果
     Type getResultType();
-
     //请求类型
     @ContentType
     String getContentType();
-
     //参数类型
     @ParamType
     int getParamType();
-
-    String getDefaultParams();
-
-
-    Object getParamData();
-
-    //是否需要缓存请求
+    //是否缓存到本地
     boolean enableCache();
-
-    /**
-     * 请求构建起
-     *
-     * @return
-     */
-    IRequestBuilder newRequestBuilder();
-
-    /**
-     * 参数构建起
-     *
-     * @return
-     */
-    IParamBuilder getParamBuilder();
-
-    /**
-     * 结果解析器
-     *
-     * @return
-     */
+    //结果解析器
     IResultParse getResultParse();
-
-    /**
-     * 头部参数
-     *
-     * @return
-     */
+    //请求头
     Map<String, String> getHeaders();
-
-    /**
-     * 缓存的key
-     *
-     * @return
-     */
+    //缓存到本地的key值
     String getCacheKey();
 
-    //参数构造路径
-    @ParmBuildWay
-    int parmBuildWay();
 }

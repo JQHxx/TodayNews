@@ -1,23 +1,27 @@
 package com.news.today.http;
 
-import com.kaike.la.kernal.http.IApi;
-import com.kaike.la.kernal.http.IRequest;
-import com.kaike.la.kernal.lf.helper.HttpHelper;
-import com.kaike.la.kernal.util.lang.Maps;
+import android.content.Context;
+
+
 import com.news.today.http.api.IApi;
 import com.news.today.http.parser.IResult;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * Created by ye on 2017/4/14.
+ * Created by anson on 2018/4/15.
  */
 
 public class LfManager {
-    protected <T> IResult<T> execute(IApi iApi)  {
-        return HttpHelper.execute(iApi, Maps.mapNull);
+
+    protected <T> IResult<T> execute(Context context,IApi iApi)  {
+        return HttpHelper.execute(context,iApi, null);
     }
 
-    protected <T> IResult<T> execute(IApi iApi, Object params)  {
-        return HttpHelper.execute(iApi, params);
+    //把封装好的请求方式及参数  去网络调度器中执行
+    protected <T> IResult<T> execute(Context context,IApi iApi, Map<String,Object> params)  {
+        return HttpHelper.execute(context,iApi, params);
     }
 
 }

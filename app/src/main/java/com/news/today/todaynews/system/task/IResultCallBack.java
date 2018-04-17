@@ -1,9 +1,9 @@
-package com.news.today.todaynews.system;
+package com.news.today.todaynews.system.task;
 
 import com.news.today.http.parser.IResult;
 
 /**
- * Created by ye on 2017/4/6.
+ * Created by anson on 2018/4/15.
  */
 
 public interface IResultCallBack<T> {

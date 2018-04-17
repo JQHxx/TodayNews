@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.news.today.http.cookie.ICookieIterator;
+import com.news.today.http.util.CookieUtil;
+import com.news.today.http.util.EncodeUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;

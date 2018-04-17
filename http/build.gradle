@@ -29,5 +29,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     //okhttp
     compile "$okhttp_group:okhttp:$okhttp_version"
+    compile 'com.google.code.gson:gson:2.8.2'
     testCompile 'junit:junit:4.12'
 }

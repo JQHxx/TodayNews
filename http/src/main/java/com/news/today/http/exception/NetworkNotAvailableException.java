@@ -1,8 +1,7 @@
 package com.news.today.http.exception;
 
 /**
- * 网络未开启
- * Created by yh on 2016/5/16.
+ * Created by anson on 2018/4/8.
  */
 public class NetworkNotAvailableException extends LfException {
     public NetworkNotAvailableException() {

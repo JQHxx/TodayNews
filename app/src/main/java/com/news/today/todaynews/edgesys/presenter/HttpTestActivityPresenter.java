@@ -2,10 +2,11 @@ package com.news.today.todaynews.edgesys.presenter;
 
 import com.news.today.http.parser.IResult;
 import com.news.today.todaynews.base.DaggerMvpPresenter;
+import com.news.today.todaynews.edgesys.entity.XiaoHua;
 import com.news.today.todaynews.edgesys.lf.IHttpTestContract;
 import com.news.today.todaynews.edgesys.lf.ISplashContract;
 import com.news.today.todaynews.edgesys.manager.HttpTestManager;
-import com.news.today.todaynews.system.JHTask;
+import com.news.today.todaynews.system.task.JHTask;
 
 import javax.inject.Inject;
 
@@ -13,40 +14,38 @@ import javax.inject.Inject;
  * Created by anson on 2018/4/6.
  */
 
-public class HttpTestActivityPresenter extends DaggerMvpPresenter<ISplashContract.IView> implements IHttpTestContract.IPresenter {
+public class HttpTestActivityPresenter extends DaggerMvpPresenter<IHttpTestContract.IView> implements IHttpTestContract.IPresenter {
 
     @Inject
     HttpTestManager manager;
 
     @Inject
-    public HttpTestActivityPresenter(ISplashContract.IView view) {
+    public HttpTestActivityPresenter(IHttpTestContract.IView view) {
         super(view);
     }
 
 
     @Override
-    protected ISplashContract.IView getEmptyView() {
-        return ISplashContract.emptyView;
+    protected IHttpTestContract.IView getEmptyView() {
+        return IHttpTestContract.emptyView;
     }
 
 
     @Override
     public void getNetData() {
-        submitTask(new JHTask<Object>() {
-
+        submitTask(new JHTask<XiaoHua>() {
             @Override
-            public IResult<Object> onBackground() throws Exception {
-                return null;
+            public IResult<XiaoHua> onBackground() throws Exception {
+                return manager.getXiaoHuaList(1);
             }
 
             @Override
-            public void onSuccess(IResult result) {
+            public void onSuccess(IResult<XiaoHua> result) {
 
             }
 
             @Override
             public boolean onFailure(IResult result) {
-
                 return super.onFailure(result);
             }
         });

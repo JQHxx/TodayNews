@@ -8,7 +8,7 @@ import com.news.today.mvp.lf.view.IMvpView;
 import com.news.today.task.AsyncTaskInstance;
 import com.news.today.task.helper.TaskHelper;
 import com.news.today.task.lf.IGroup;
-import com.news.today.todaynews.system.AbsTask;
+import com.news.today.task.AbsTask;
 
 /**
  * Created by anson on 2018/4/6.

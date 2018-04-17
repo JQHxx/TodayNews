@@ -43,4 +43,12 @@ public class Result<T> implements IResult<T> {
         result.code = code;
         return result;
     }
+
+    public static <T> Result<T> success(String code, T data) {
+        Result<T> simpleResult = new Result<>();
+        simpleResult.data = data;
+        simpleResult.success = true;
+        simpleResult.code = code;
+        return simpleResult;
+    }
 }

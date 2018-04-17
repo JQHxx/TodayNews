@@ -85,7 +85,7 @@ public class OkhttpCookieManager implements CookieJar, ILocalCookieManager {
         try {
             httpUrl = HttpUrl.parse(urlStr);
         } catch (Exception e) {
-            KernalLog.network.e(e);
+            e.printStackTrace();
         }
         if (httpUrl == null) {
             return;
@@ -97,7 +97,7 @@ public class OkhttpCookieManager implements CookieJar, ILocalCookieManager {
                 try {
                     cookie = Cookie.parse(httpUrl, cookieStr);
                 } catch (Exception e) {
-                    KernalLog.network.e(e);
+                    e.printStackTrace();
                 }
                 if (cookie != null) {
                     cookieStore.add(httpUrl, cookie);

@@ -1,7 +1,7 @@
 package com.news.today.http.exception;
 
 /**
- * Created by ye on 2017/7/11.
+ * Created by anson on 2018/4/8.
  */
 
 public abstract class LfException extends RuntimeException {

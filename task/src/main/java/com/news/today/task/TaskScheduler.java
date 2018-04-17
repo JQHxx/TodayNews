@@ -98,14 +98,14 @@ public final class TaskScheduler {
                     Log.d(TAG, String.format("discard new submit task（%s）", task.taskName()));
                     return;
                 }
-                //3.首先添加任务到任务分组队列
-                taskPriorityManager.addTask(task);
-                //4.同时检测下任务是否可提交，不可提交则设置任务为等待状态
-                if (canSubmit(task)) {
-                    submitReadyTask(task);
-                } else {
-                    task.setStatus(ITaskInstance.STATUS_WAIT);
-                }
+            }
+            //3.首先添加任务到任务分组队列
+            taskPriorityManager.addTask(task);
+            //4.同时检测下任务是否可提交，不可提交则设置任务为等待状态
+            if (canSubmit(task)) {
+                submitReadyTask(task);
+            } else {
+                task.setStatus(ITaskInstance.STATUS_WAIT);
             }
         }
     }

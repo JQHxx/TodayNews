@@ -145,8 +145,8 @@ public abstract class AbstractTaskInstance<Result> extends FutureTask<Result> im
     @Override
     protected void setException(final Throwable t) {
         super.setException(t);
+        t.printStackTrace();
         this.endExecute = System.currentTimeMillis();//为了更好的打印日志，此时任务还未结束此字段为0
-        Log.e(TAG, String.format("execute task(%s) exception \nexception: %s", taskName()), t);
         if (!ThreadUtil.isUiThread()) {
             ThreadUtil.postUi(new Runnable() {
                 @Override

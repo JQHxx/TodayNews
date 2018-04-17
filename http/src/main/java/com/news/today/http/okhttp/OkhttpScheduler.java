@@ -5,10 +5,12 @@ import com.news.today.http.HttpScheduler;
 import com.news.today.http.annotation.ParamType;
 import com.news.today.http.annotation.RequestMethod;
 import com.news.today.http.api.IApi;
-import com.news.today.http.builder.IRequest;
 import com.news.today.http.callback.ICall;
 import com.news.today.http.callback.IResponse;
 import com.news.today.http.exception.NetWorkException;
+import com.news.today.http.util.Chars;
+import com.news.today.http.util.JsonHelper;
+import com.news.today.http.util.Strings;
 
 import java.io.File;
 import java.util.Iterator;
@@ -24,11 +26,11 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 
 /**
- * Created by yh on 2016/4/15.
+ * Created by anson on 2018/4/15.
  */
 public class OkhttpScheduler extends HttpScheduler {
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private OkHttpClient client;
 
     public OkhttpScheduler(OkHttpClient client) {
@@ -43,15 +45,11 @@ public class OkhttpScheduler extends HttpScheduler {
     }
 
     @Override
-    public ICall newCall(IRequest iRequest) {
-        Map<String, Object> params = iRequest.getParams();
-        IApi api = iRequest.getApi();
+    public ICall newCall(IApi api) {
+        Map<String, Object> params = api.getParams();
         int method = api.getRequestMethod();
         StringBuilder urlStrBuilder = new StringBuilder(api.getUrl());
         Request.Builder requestBuilder = new Request.Builder();
-        if (iRequest.getDefaultParams() != null) {
-            urlStrBuilder.append(iRequest.getDefaultParams());
-        }
         switch (method) {
             case RequestMethod.Get: {
                 if (params != null) {
@@ -74,7 +72,6 @@ public class OkhttpScheduler extends HttpScheduler {
                 requestBuilder.get();
                 break;
             }
-
 
             case RequestMethod.Post: {
                 int paramType = api.getParamType();
@@ -117,7 +114,7 @@ public class OkhttpScheduler extends HttpScheduler {
                         requestBuilder.post(requestBodyBuilder.build());
                     }
                     break;
-                    case ParamType.json://post json方式
+                    case ParamType.json:
                     {
                         String json = Strings.EMPTY;
                         if (params != null) {
@@ -132,7 +129,7 @@ public class OkhttpScheduler extends HttpScheduler {
             }
 
         }
-        Map<String, String> headers = iRequest.getHeaders();
+        Map<String, String> headers = api.getHeaders();
         if (headers != null) {
             requestBuilder.headers(Headers.of(headers));
         }
@@ -141,7 +138,7 @@ public class OkhttpScheduler extends HttpScheduler {
                 .url(urlStrBuilder.toString())
                 .build();
         Call call = getClient().newCall(request);
-        OkHttpCall okHttpCall = new OkHttpCall(iRequest, call);
+        OkHttpCall okHttpCall = new OkHttpCall(api, call);
         return okHttpCall;
     }
 

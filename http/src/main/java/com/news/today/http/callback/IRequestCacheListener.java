@@ -1,9 +1,9 @@
 package com.news.today.http.callback;
 
 
-import com.news.today.http.builder.IRequest;
+import com.news.today.http.api.IApi;
 
-import java.net.CacheResponse;
+
 
 /**
  * 缓存监听器
@@ -11,13 +11,6 @@ import java.net.CacheResponse;
  */
 public interface IRequestCacheListener {
 
-    /**
-     * 网络未开始前
-     *
-     * @param request
-     * @return
-     */
-    CacheResponse readCacheBeforeExecute(IRequest request);
 
     /**
      * 在网络失败的时候调用
@@ -25,7 +18,7 @@ public interface IRequestCacheListener {
      * @param request
      * @return
      */
-    CacheResponse readCacheWhenResponseError(IRequest request);
+    CacheResponse readCacheWhenResponseError(IApi request);
 
 
     /**
@@ -34,5 +27,5 @@ public interface IRequestCacheListener {
      * @param request
      * @param response
      */
-    void putCache(IRequest request, CacheResponse response);
+    void putCache(IApi request, CacheResponse response);
 }

@@ -1,14 +1,15 @@
-package com.news.today.todaynews.system;
+package com.news.today.todaynews.system.task;
 
 import com.news.today.http.parser.IResult;
 import com.news.today.http.parser.Result;
-import com.news.today.todaynews.system.http.ResultCodes;
+import com.news.today.http.parser.ResultCodes;
+import com.news.today.task.AbsTask;
 
 /**
  * Created by anson on 2018/4/8.
  */
 
-public abstract class JHTask<T> extends AbsTask<T,IResult<T>> implements IResultCallBack{
+public abstract class JHTask<T> extends AbsTask<T,IResult<T>> implements IResultCallBack<T> {
 
     @Override
     public final void onComplete(IResult<T> data) {

@@ -1,5 +1,6 @@
 package com.news.today.todaynews.edgesys.view;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -77,7 +78,8 @@ public class SplashActivity extends DaggerMvpActivity implements ISplashContract
                 if (mVideoView.isPlaying()) {
                     mVideoView.stopPlayback();
                 }
-                MainActivity.start(SplashActivity.this);
+//                MainActivity.start(SplashActivity.this);
+                startActivity(new Intent(SplashActivity.this,HttpTestActivity.class));
                 finish();
             }
         });

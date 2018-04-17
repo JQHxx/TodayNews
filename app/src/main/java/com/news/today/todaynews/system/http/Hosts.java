@@ -4,8 +4,7 @@ package com.news.today.todaynews.system.http;
 import com.news.today.http.api.IHost;
 
 /**
- * 服务器host的定义
- * Created by ye on 2017/10/11.
+ * Created by anson on 2018/4/15.
  */
 
 public interface Hosts {
@@ -13,7 +12,7 @@ public interface Hosts {
     IHost jhData = new IHost() {
         @Override
         public String getHost() {
-            return "http://v.juhe.cn/joke/";
+            return "http://v.juhe.cn/joke/content/";
         }
 
         @Override

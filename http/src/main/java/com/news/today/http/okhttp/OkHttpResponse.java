@@ -9,7 +9,7 @@ import java.io.InputStream;
 import okhttp3.Response;
 
 /**
- * Created by yh on 2016/4/19.
+ * Created by anson on 2018/4/15.
  */
 public class OkHttpResponse implements IResponse {
     private Response response;
@@ -33,7 +33,7 @@ public class OkHttpResponse implements IResponse {
             try {
                 body = response.body().string();
             } catch (Exception e) {
-                KernalLog.network.e(e);
+               e.printStackTrace();
             }
         }
         return body;

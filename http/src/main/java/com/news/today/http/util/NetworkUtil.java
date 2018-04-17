@@ -4,8 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
-
 /**
+ * Created by anson on 2018/4/15.
  */
 public final class NetworkUtil {
 

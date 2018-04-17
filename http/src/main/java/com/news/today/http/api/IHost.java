@@ -1,7 +1,7 @@
 package com.news.today.http.api;
 
 /**
- * Created by yh on 2016/8/23.
+ * Created by anson on 2018/4/17.
  */
 public interface IHost {
     String getHost();

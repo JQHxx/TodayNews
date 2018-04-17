@@ -1,21 +1,23 @@
 package com.news.today.http.okhttp;
 
 
-import com.news.today.http.builder.IRequest;
+import com.news.today.http.api.IApi;
 import com.news.today.http.callback.ApiCall;
 import com.news.today.http.callback.IResponse;
+import com.news.today.http.exception.NetworkNotAvailableException;
 
 import okhttp3.Call;
 import okhttp3.Response;
 
 /**
- * Created by yh on 2016/4/15.
+ * Created by anson on 2018/4/15.
  */
 public class OkHttpCall extends ApiCall {
     public Call call;
 
-    public OkHttpCall(IRequest request, Call call) {
-        super(request);
+    public OkHttpCall(IApi api, Call call) {
+        super(api);
+        super.setUrl(api.getUrl());
         this.call = call;
         setReady();
     }
@@ -31,7 +33,8 @@ public class OkHttpCall extends ApiCall {
             Response response = call.execute();
             return new OkHttpResponse(response);
         } catch (Throwable e) {
-            KernalLog.network.e(e);
+           e.printStackTrace();
+            // CODEREVIEW:  代码审核： 自定义异常
             throw new NetworkNotAvailableException();
         }
     }

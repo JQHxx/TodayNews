@@ -12,6 +12,7 @@ import static com.news.today.http.annotation.ContentType.TEXT_PLAIN;
 import static com.news.today.http.annotation.ContentType.WILDCARD;
 
 /**
+ * Created by anson on 2018/4/15.
  */
 @StringDef({APP_FORM_URLENCODED, APP_JSON, APP_OCTET_STREAM, MULTIPART_FORM_DATA, TEXT_HTML, TEXT_PLAIN, WILDCARD})
 public @interface ContentType {
