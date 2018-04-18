@@ -1,8 +1,7 @@
 package com.news.today.http.annotation;
 
 /**
- * 请求方式
- * Created by yh on 2016/4/15.
+ * Created by anson on 2018/4/8.
  */
 
 import android.support.annotation.IntDef;

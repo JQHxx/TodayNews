@@ -3,7 +3,7 @@ package com.news.today.http.util;
 import okhttp3.HttpUrl;
 
 /**
- * Created by ye on 2017/5/5.
+ * Created by anson on 2018/4/8.
  */
 
 public class CookieUtil {

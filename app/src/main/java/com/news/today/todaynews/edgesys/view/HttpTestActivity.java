@@ -33,4 +33,9 @@ public class HttpTestActivity extends DaggerMvpActivity implements IHttpTestCont
     public void afterViewBind(View rootView, Bundle savedInstanceState) {
         mPresenter.getNetData();
     }
+
+    @Override
+    public void showText(String str) {
+        tvContent.setText(str);
+    }
 }

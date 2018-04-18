@@ -3,7 +3,7 @@ package com.news.today.http.callback;
 import com.news.today.http.parser.IResult;
 
 /**
- * Created by yh on 2016/7/15.
+ * Created by anson on 2018/4/8.
  */
 public interface IRequestListener {
     /**

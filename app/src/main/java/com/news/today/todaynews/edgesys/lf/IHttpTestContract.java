@@ -10,7 +10,7 @@ import com.news.today.mvp.lf.view.IMvpView;
 
 public interface IHttpTestContract {
     interface IView extends IMvpView {
-
+        void showText(String str);
     }
 
     interface IPresenter extends ILifeCyclePresenter {
@@ -18,6 +18,11 @@ public interface IHttpTestContract {
     }
 
     IView emptyView = new IView() {
+
+        @Override
+        public void showText(String str) {
+
+        }
 
         @Override
         public MvpControler getMvpControler() {

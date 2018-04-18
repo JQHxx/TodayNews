@@ -8,9 +8,8 @@ import static com.news.today.http.annotation.ParamType.normal;
 import static com.news.today.http.annotation.ParamType.json;
 
 /**
- * Created by ye on 2017/4/10.
+ * Created by anson on 2018/4/8.
  */
-// 自定义一个注解MyState
 @IntDef({normal, json, file})
 public @interface ParamType {
     int normal = 1;

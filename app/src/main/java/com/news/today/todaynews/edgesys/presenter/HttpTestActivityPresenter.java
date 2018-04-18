@@ -1,6 +1,7 @@
 package com.news.today.todaynews.edgesys.presenter;
 
 import com.news.today.http.parser.IResult;
+import com.news.today.http.util.JsonHelper;
 import com.news.today.todaynews.base.DaggerMvpPresenter;
 import com.news.today.todaynews.edgesys.entity.XiaoHua;
 import com.news.today.todaynews.edgesys.lf.IHttpTestContract;
@@ -41,7 +42,7 @@ public class HttpTestActivityPresenter extends DaggerMvpPresenter<IHttpTestContr
 
             @Override
             public void onSuccess(IResult<XiaoHua> result) {
-
+                getView().showText(JsonHelper.toJSONString(result.data()));
             }
 
             @Override
