@@ -93,6 +93,11 @@ public class LfApi implements IApi {
         return enbleCache;
     }
 
+    @Override
+    public IApi setEnableCache(boolean needCache) {
+        this.enbleCache = needCache;
+        return this;
+    }
 
     @Override
     public Map<String, String> getHeaders() {

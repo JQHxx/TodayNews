@@ -35,6 +35,8 @@ public interface IApi {
     int getParamType();
     //是否缓存到本地
     boolean enableCache();
+    //设置缓存参数
+    IApi setEnableCache(boolean needCache);
     //结果解析器
     IResultParse getResultParse();
     //请求头
