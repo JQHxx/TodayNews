@@ -13,7 +13,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
  */
 @Singleton
 @Component(modules = {
-        AndroidSupportInjectionModule.class,//项目中用support的fragment
+        AndroidSupportInjectionModule.class,
         IEdgesysModule.class,
 })
 public interface TodayNewsApplicationComponent {

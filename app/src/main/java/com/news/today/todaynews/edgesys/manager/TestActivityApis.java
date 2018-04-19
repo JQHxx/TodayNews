@@ -10,5 +10,5 @@ import com.news.today.todaynews.system.http.JHApi;
  */
 
 public interface TestActivityApis {
-    IApi getXiaoHuaList = JHApi.sendHttp("list.php", RequestMethod.Get,XiaoHua.class);
+    IApi getXiaoHuaList = JHApi.sendHttp("/joke/content/list.php", RequestMethod.Get,XiaoHua.class);
 }

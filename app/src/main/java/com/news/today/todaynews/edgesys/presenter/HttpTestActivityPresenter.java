@@ -5,7 +5,6 @@ import com.news.today.http.util.JsonHelper;
 import com.news.today.todaynews.base.DaggerMvpPresenter;
 import com.news.today.todaynews.edgesys.entity.XiaoHua;
 import com.news.today.todaynews.edgesys.lf.IHttpTestContract;
-import com.news.today.todaynews.edgesys.lf.ISplashContract;
 import com.news.today.todaynews.edgesys.manager.HttpTestManager;
 import com.news.today.todaynews.system.task.JHTask;
 

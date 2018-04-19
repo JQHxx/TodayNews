@@ -12,7 +12,7 @@ public interface Hosts {
     IHost jhData = new IHost() {
         @Override
         public String getHost() {
-            return "http://v.juhe.cn/joke/content/";
+            return "http://v.juhe.cn";
         }
 
         @Override

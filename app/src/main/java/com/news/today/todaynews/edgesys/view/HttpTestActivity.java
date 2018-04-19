@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.news.today.todaynews.R;
 import com.news.today.todaynews.base.DaggerMvpActivity;
 import com.news.today.todaynews.edgesys.lf.IHttpTestContract;
+import com.news.today.todaynews.edgesys.presenter.HttpTestActivityPresenter;
 
 import javax.inject.Inject;
 

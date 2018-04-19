@@ -2,6 +2,7 @@ package com.news.today.http.okhttp;
 
 
 import com.news.today.http.HttpScheduler;
+import com.news.today.http.annotation.ContentType;
 import com.news.today.http.annotation.ParamType;
 import com.news.today.http.annotation.RequestMethod;
 import com.news.today.http.api.IApi;
@@ -30,7 +31,6 @@ import okhttp3.RequestBody;
  */
 public class OkhttpScheduler extends HttpScheduler {
 
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private OkHttpClient client;
 
     public OkhttpScheduler(OkHttpClient client) {
@@ -120,7 +120,7 @@ public class OkhttpScheduler extends HttpScheduler {
                         if (params != null) {
                             json = JsonHelper.toJSONString(params);
                         }
-                        RequestBody body = RequestBody.create(JSON, json);
+                        RequestBody body = RequestBody.create(MediaType.parse(ContentType.APP_JSON_UTF_8), json);
                         requestBuilder.post(body);
                     }
                     break;
