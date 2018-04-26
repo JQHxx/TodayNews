@@ -1,6 +1,7 @@
 package com.news.today.todaynews.utils;
 
 import android.os.Handler;
+import android.os.Message;
 
 public class CustomCountDownTimer implements Runnable{
 	private static final long PASS_TIME = 1000; 

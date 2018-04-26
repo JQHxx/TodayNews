@@ -1,15 +1,9 @@
 package com.news.today.todaynews.edgesys.presenter;
 
-import android.view.View;
-
-import com.news.today.mvp.base.BaseMvpPresenter;
-import com.news.today.mvp.lf.view.IMvpView;
 import com.news.today.todaynews.R;
 import com.news.today.todaynews.base.DaggerMvpPresenter;
 import com.news.today.todaynews.edgesys.lf.ISplashContract;
-import com.news.today.todaynews.edgesys.view.SplashActivity;
 import com.news.today.todaynews.helper.ContextHelper;
-import com.news.today.todaynews.homesys.MainActivity;
 import com.news.today.todaynews.utils.CustomCountDownTimer;
 
 import javax.inject.Inject;

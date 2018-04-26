@@ -13,4 +13,29 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="indexRadioButton" parent="commRadioButton">
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:textColor">@drawable/selector_main_bottom</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <!-- 通用的横向RadioButton -->
+    <style name="commRadioButton" parent="auto_horizontal">
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="auto_horizontal">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="divider_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.4dp</item>
+        <item name="android:background">#efefef</item>
+    </style>
 </resources>

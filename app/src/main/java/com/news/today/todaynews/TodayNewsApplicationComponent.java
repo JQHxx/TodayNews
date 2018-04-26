@@ -2,6 +2,7 @@ package com.news.today.todaynews;
 
 
 import com.news.today.todaynews.edgesys.dagger.IEdgesysModule;
+import com.news.today.todaynews.homesys.home.dagger.IHomesysModule;
 
 import javax.inject.Singleton;
 
@@ -15,6 +16,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {
         AndroidSupportInjectionModule.class,
         IEdgesysModule.class,
+        IHomesysModule.class,
 })
 public interface TodayNewsApplicationComponent {
     void inject(TodayNewsApplication application);

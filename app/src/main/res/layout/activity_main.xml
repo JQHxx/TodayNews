@@ -1,17 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context="com.news.today.todaynews.homesys.MainActivity">
+    android:orientation="vertical"
+    tools:context="com.news.today.todaynews.homesys.home.view.MainActivity">
 
-    <TextView
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-       />
+    <FrameLayout
+        android:id="@+id/fl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_main_but"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="fab"
+            app:fabSize="normal"
+            app:rippleColor="#6eab2c" />
+
+    </FrameLayout>
+    <View style="@style/divider_horizontal" />
+    <FrameLayout
+        android:id="@+id/fl_main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <RadioGroup
+            android:id="@+id/rg_main_nav_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_main_nav_home"
+                style="@style/indexRadioButton"
+                android:drawableTop="@drawable/selector_main_home"
+                android:text="上海" />
+
+            <RadioButton
+                android:id="@+id/rb_main_nav_car_source"
+                style="@style/indexRadioButton"
+                android:drawableTop="@drawable/selector_main_car_source"
+                android:text="杭州" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:visibility="gone"
+            android:id="@+id/rg_main_nav_group_change"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_main_nav_home_beijing"
+                style="@style/indexRadioButton"
+                android:drawableTop="@drawable/selector_main_customer_service"
+                android:text="北京" />
+
+            <RadioButton
+                android:id="@+id/rb_main_nav_car_source_shenzhen"
+                style="@style/indexRadioButton"
+                android:drawableTop="@drawable/selector_main_mine"
+                android:text="深圳" />
+        </RadioGroup>
+
+    </FrameLayout>
 
 </LinearLayout>

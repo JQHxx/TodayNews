@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".homesys.MainActivity" />
+        <activity android:name=".homesys.home.view.MainActivity" />
         <activity android:name=".edgesys.view.HttpTestActivity" />
     </application>
 
