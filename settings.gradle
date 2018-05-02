@@ -1,1 +1,1 @@
-include ':app', ':mydrawerlayout', ':mydrayerlayout'
+include ':app', ':mydrawerlayout', ':mydrayerlayout', ':rx', ':http', ':mvp'

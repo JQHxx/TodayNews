@@ -14,6 +14,7 @@ import com.base.mydrayerlayout.MyDrawSideBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mUnbinder = ButterKnife.bind(this);
-        setListener();
+      //  setListener();
     }
 
     private void setListener() {
@@ -63,12 +65,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                Toast.makeText(MainActivity.this, "取消", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(MainActivity.this, "取消", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-/*
     @OnClick({R.id.iv_background, R.id.tv_friend_circle, R.id.tv_wallet, R.id.tv_coupon, R.id.tv_friends, R.id.tv_sets})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "设置", Toast.LENGTH_SHORT).show();
                 break;
         }
-    }*/
+    }
 
     @Override
     protected void onDestroy() {

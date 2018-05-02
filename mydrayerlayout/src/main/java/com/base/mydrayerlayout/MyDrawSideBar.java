@@ -62,6 +62,7 @@ public class MyDrawSideBar extends LinearLayout {
 
             boolean isHover = opened && y > child.getTop() && y < child.getBottom();
             if (isHover) {
+                if (motionListener!=null)
                 motionListener.onHover(child, i);
                 child.setPressed(true);
             }
@@ -69,6 +70,7 @@ public class MyDrawSideBar extends LinearLayout {
             mListener.apply((ViewGroup) getParent(), child, y, percent);
         }
         if (opened) {
+            if (motionListener!=null)
             motionListener.onHover(null, -1);
         }
     }
@@ -81,10 +83,12 @@ public class MyDrawSideBar extends LinearLayout {
             View child = getChildAt(i);
             //要判断  y坐落在哪一个子控件    松手的那一刻  进行回调  跳转其他页面
             if (child.isPressed()) {
+                if (motionListener!=null)
                 motionListener.onSelect(child, i);
-                child.performClick();
+                //child.performClick();
             }
         }
+        if (motionListener!=null)
         motionListener.onCancel();
 
     }

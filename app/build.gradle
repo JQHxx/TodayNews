@@ -26,8 +26,18 @@ dependencies {
     })
     compile "$support_group:appcompat-v7:$support_version"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //dagger2
+    compile "$dagger_group:dagger:$dagger_version"
+    annotationProcessor "$dagger_group:dagger-compiler:$dagger_version"
+    //dagger_android
+    compile "$dagger_group:dagger-android:$dagger_version"
+    compile "$dagger_group:dagger-android-support:$dagger_version"
+    annotationProcessor "$dagger_group:dagger-android-processor:$dagger_version"
     compile 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     testCompile 'junit:junit:4.12'
     compile project(':mydrayerlayout')
+    implementation project(':http')
+    implementation project(':mvp')
+    implementation project(':rx')
 }

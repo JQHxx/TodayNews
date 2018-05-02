@@ -26,7 +26,7 @@ public class SideBgLayout extends RelativeLayout{
         //背景添加进去
         mBgView = new SideBgView(getContext());
         addView(mBgView,0,new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-        //把把SideBgView  的背景颜色取出来    设置给 SideBgLayout   SideBgView弄成透明
+        //把SideBgView  的背景颜色取出来    设置给 SideBgLayout   SideBgView弄成透明
         mBgView.setDrawable(mDrawSideView.getBackground());
         mDrawSideView.setBackgroundColor(Color.TRANSPARENT);
         addView(myDrawSideBar,new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));

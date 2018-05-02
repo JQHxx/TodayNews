@@ -4,8 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TodayNews.iml" filepath="$PROJECT_DIR$/TodayNews.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/http/http.iml" filepath="$PROJECT_DIR$/http/http.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mvp/mvp.iml" filepath="$PROJECT_DIR$/mvp/mvp.iml" />
       <module fileurl="file://$PROJECT_DIR$/mydrawerlayout/mydrawerlayout.iml" filepath="$PROJECT_DIR$/mydrawerlayout/mydrawerlayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/mydrayerlayout/mydrayerlayout.iml" filepath="$PROJECT_DIR$/mydrayerlayout/mydrayerlayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rx/rx.iml" filepath="$PROJECT_DIR$/rx/rx.iml" />
     </modules>
   </component>
 </project>
