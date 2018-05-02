@@ -1,6 +1,9 @@
 package com.news.today.mvp.base;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 
 import com.news.today.mvp.MvpControler;
 import com.news.today.mvp.lf.presenter.ILifeCyclePresenter;
@@ -14,7 +17,8 @@ import java.lang.ref.SoftReference;
 
 public abstract class BaseMvpPresenter<T extends IMvpView> implements ILifeCyclePresenter {
     protected SoftReference<T> softReferenceView;
-
+    protected Context          mContext;
+    protected IMvpView mView;
     protected BaseMvpPresenter() {
         super();
     }
@@ -28,8 +32,17 @@ public abstract class BaseMvpPresenter<T extends IMvpView> implements ILifeCycle
         } catch (Exception e) {
             e.printStackTrace();
         }
+        this.mView = iView;
+        this.initContext();
     }
+    private void initContext() {
+        if(this.mView instanceof Fragment) {
+            this.mContext = ((Fragment)this.mView).getActivity();
+        } else {
+            this.mContext = (Activity)this.mView;
+        }
 
+    }
     @Override
     public synchronized void takeView(IMvpView mvpView) {
         if (softReferenceView == null) {

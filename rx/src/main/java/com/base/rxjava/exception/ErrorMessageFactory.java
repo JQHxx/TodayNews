@@ -4,23 +4,15 @@ import android.content.Context;
 
 import com.base.rx.R;
 
-
 /**
- * 菜鸟窝http://www.cniao5.com 一个高端的互联网技能学习平台
+ * Created by WangHao
  *
- * @author Ivan
- * @version V1.0
- * @Package com.cniao5.cniao5play.common.exception
- * @Description: ${TODO}(用一句话描述该文件做什么)
- * @date
+ * @ 创建时间 2018/4/9  16:43
  */
 
 public class ErrorMessageFactory {
 
     public static String create(Context context, int code){
-
-
-
 
         String errorMsg = null ;
 

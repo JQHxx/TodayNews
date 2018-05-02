@@ -1,18 +1,12 @@
 package com.base.rxjava.exception;
 
 /**
- * 菜鸟窝http://www.cniao5.com 一个高端的互联网技能学习平台
+ * Created by WangHao
  *
- * @author Ivan
- * @version V1.0
- * @Package com.cniao5.cniao5play.common.exception
- * @Description: ${TODO}(用一句话描述该文件做什么)
- * @date
+ * @ 创建时间 2018/4/9  16:43
  */
 
 public class BaseException extends Exception {
-
-
 
     /*API错误*/
     public static final int API_ERROR = 0x0;
@@ -35,8 +29,6 @@ public class BaseException extends Exception {
 
     /*无网络连接*/
     public static final int SOCKET_ERROR = 0x8;
-
-
 
 
     //    api /////////////////////////////////////////

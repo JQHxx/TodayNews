@@ -1,4 +1,4 @@
-package com.news.today.todaynews;
+package com.news.today.todaynews.widget;
 
 
 import android.content.Context;
@@ -19,6 +19,12 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import com.news.today.todaynews.R;
+/**
+ * Created by WangHao
+ *
+ * @ 创建时间 2018/4/9  16:43
+ */
 
 public class CircleImageView extends ImageView {
 
