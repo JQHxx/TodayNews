@@ -32,6 +32,7 @@ public class LfApi implements IApi {
     protected IResultParse resultParse;
     // 主域名
     protected IHost host;
+    protected String cacheKey;
 
     @NonNull
     @Override
@@ -113,7 +114,11 @@ public class LfApi implements IApi {
 
     @Override
     public String getCacheKey() {
-        return null;
+        return cacheKey;
+    }
+    @Override
+    public void setCacheKey(String cacheKey) {
+        this.cacheKey = cacheKey;
     }
 
     public IHost getHost() {

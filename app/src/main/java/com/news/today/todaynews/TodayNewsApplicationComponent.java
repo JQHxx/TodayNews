@@ -2,7 +2,7 @@ package com.news.today.todaynews;
 
 
 import com.news.today.todaynews.edgesys.dagger.IEdgesysModule;
-import com.news.today.todaynews.homesys.home.dagger.IHomesysModule;
+import com.news.today.todaynews.homesys.dagger.IHomesysModule;
 
 import javax.inject.Singleton;
 

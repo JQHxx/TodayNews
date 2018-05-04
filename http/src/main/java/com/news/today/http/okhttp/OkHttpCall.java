@@ -34,7 +34,6 @@ public class OkHttpCall extends ApiCall {
             return new OkHttpResponse(response);
         } catch (Throwable e) {
            e.printStackTrace();
-            // CODEREVIEW:  代码审核： 自定义异常
             throw new NetworkNotAvailableException();
         }
     }

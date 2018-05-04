@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context="com.news.today.todaynews.homesys.home.view.MainActivity">
+    android:orientation="vertical">
 
     <FrameLayout
+        android:fitsSystemWindows="true"
+        android:layout_above="@+id/fl_main_bottom"
         android:id="@+id/fl_main_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        >
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_main_but"
@@ -22,18 +23,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:scaleType="fitCenter"
+            app:borderWidth="0dp"
+            app:backgroundTint="@color/color_black_30"
+            android:src="@mipmap/course_detail_play_s"
+            android:onClick="fab"
+            app:fabSize="normal"
+            app:rippleColor="#6eab2c" />
+
+        <android.support.design.widget.FloatingActionButton
+            app:backgroundTint="@color/color_black_30"
+            android:id="@+id/fab_main_but_"
+            android:src="@mipmap/cache_finish_head"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:scaleType="fitCenter"
             android:onClick="fab"
             app:fabSize="normal"
             app:rippleColor="#6eab2c" />
 
     </FrameLayout>
+
     <View style="@style/divider_horizontal" />
+
     <FrameLayout
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
         android:id="@+id/fl_main_bottom"
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
         <RadioGroup
+            android:gravity="center_vertical"
             android:id="@+id/rg_main_nav_group"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -54,6 +78,7 @@
         </RadioGroup>
 
         <RadioGroup
+            android:gravity="center_vertical"
             android:visibility="gone"
             android:id="@+id/rg_main_nav_group_change"
             android:layout_width="match_parent"
@@ -76,4 +101,4 @@
 
     </FrameLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -23,31 +23,34 @@ import okhttp3.OkHttpClient;
  */
 
 public class HttpHelper {
-    private static HttpScheduler httpScheduler;
+    private volatile static HttpScheduler httpScheduler;
 
     public static HttpScheduler getHttpScheduler(Context context) {
         if (httpScheduler == null) {
-            //默认提供okhttp 实现
-            httpScheduler = new OkhttpScheduler(new OkHttpClient.Builder().cookieJar(new OkhttpCookieManager(new PersistentCookieStore(context))).build());
-            //打印网络日志
-            httpScheduler.setRequestListener(new RequestListener());
-            //本地缓存
-            httpScheduler.setCacheListener(new CacheListener(context));
+            synchronized (HttpHelper.class) {
+                if (httpScheduler == null)
+                //默认提供okhttp 实现
+                httpScheduler = new OkhttpScheduler(new OkHttpClient.Builder().cookieJar(new OkhttpCookieManager(new PersistentCookieStore(context))).build());
+                //打印网络日志
+                httpScheduler.setRequestListener(new RequestListener());
+                //本地缓存
+                httpScheduler.setCacheListener(new CacheListener(context));
+            }
         }
         return httpScheduler;
     }
 
-    //可自定义HttpScheduler
-    public static void  setHttpScheduler(HttpScheduler httpSchedulers) {
+    //可自定义HttpScheduler（其他拓展省略）
+    public static void setHttpScheduler(HttpScheduler httpSchedulers) {
         httpScheduler = httpSchedulers;
     }
 
-    public static <T> IResult<T> execute(Context context,IApi api, Map<String,Object> params) {
+    public static <T> IResult<T> execute(Context context, IApi api, Map<String, Object> params) {
         if (!ConnectUtil.getNetworkState(context)) {
-            // CODEREVIEW:  代码审核： 自定义的网络异常
             throw new NetworkNotAvailableException();
         }
         //设置参数
+        //如果需要处理公共参数，可在这里注入一个参数构造器
         api.setParams(params);
         //生成call
         ICall call = getHttpScheduler(context).newCall(api);

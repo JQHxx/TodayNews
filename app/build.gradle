@@ -23,6 +23,8 @@ dependencies {
 
     compile "$support_group:appcompat-v7:$support_version"
     compile "$support_group:design:$support_version"
+    compile "$support_group:cardview-v7:$support_version"
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     //dagger2
     compile "$dagger_group:dagger:$dagger_version"
     annotationProcessor "$dagger_group:dagger-compiler:$dagger_version"

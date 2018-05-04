@@ -21,7 +21,7 @@ public class DefaultResultParse extends AbstractResultParse {
 
     @Override
     public Result parseResultCommon(String json, Type type, IApi iApi) {
-
+        //可根据不同的业务类型注入不同的业务解析器
         Object object = JsonHelper.fromJson(json, type);
         if (object == null) {
             return Result.failed(ResultCodes.CODE_NETWORKERROR);

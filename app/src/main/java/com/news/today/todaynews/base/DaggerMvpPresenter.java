@@ -43,17 +43,17 @@ public abstract class DaggerMvpPresenter<T extends IMvpView> extends BaseMvpPres
 
     @Override
     public void onDestroy() {
-
+        TaskHelper.cancelGroup(groupName());
     }
 
     @Override
     public void onPause() {
-
+        TaskHelper.onPause(groupName());
     }
 
     @Override
     public void onResume() {
-
+        TaskHelper.onResume(groupName());
     }
 
     @Override
@@ -87,7 +87,7 @@ public abstract class DaggerMvpPresenter<T extends IMvpView> extends BaseMvpPres
         return ((IGroup) view).groupName();
     }
 
-
+    //网络请求的快捷方式
     public <k,v> AsyncTaskInstance<k> submitTask(AbsTask<k,v> task) {
         return TaskHelper.submitTask(groupName(),task,task );
     }

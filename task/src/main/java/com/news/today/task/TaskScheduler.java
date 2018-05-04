@@ -18,8 +18,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import static com.news.today.task.lf.IGroup.DEFAULT_GROUP_NAME;
-
 
 /**
  * Created by anson on 2018/4/6.
@@ -108,14 +106,6 @@ public final class TaskScheduler {
                 task.setStatus(ITaskInstance.STATUS_WAIT);
             }
         }
-    }
-
-    private void stopTask(AbstractTaskInstance task) {
-        if (!task.isCancelled()) {
-            task.cancel(true);//手动取消也会会触发一次done()
-            task.setStatus(ITaskInstance.STATUS_CANCEL);
-        }
-        removeEndTask(task);
     }
 
     /**

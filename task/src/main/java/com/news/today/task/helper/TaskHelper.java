@@ -46,41 +46,9 @@ public class TaskHelper {
                                                final ITaskBackground task, final ITaskCallback callback) {
         AsyncTaskInstance asyncTask;
         asyncTask = buildTask(taskName, groupName, task, callback);
+        //设置是并行还是串行
         asyncTask.serialExecute(false);
         taskScheduler.submit(asyncTask);
-//        IShowInfoControl showInfoControl = null;
-//        if (callback != null&&callback instanceof LfCallback) {
-//            LfCallback lfCallback= (LfCallback) callback;
-//            showInfoControl = lfCallback.getShowInfoControl();
-//        }
-//        if (showInfoControl != null) {
-//            ITaskAction taskAction = new ITaskAction() {
-//                private AsyncTaskInstance taskInstance;
-//
-//                @Override
-//                public AsyncTaskInstance doRetry() {
-//                    taskInstance = buildTask(taskName, groupName, task, callback);
-//                    taskInstance.serialExecute(false);
-//                    taskScheduler.submit(taskInstance);
-//                    return taskInstance;
-//                }
-//
-//                @Override
-//                public void doCancel() {
-//                    if (taskInstance != null) {
-//                        taskScheduler.stopTaskOuter(taskInstance);
-//                    } else {
-//                        taskScheduler.cancelTask(taskName, groupName);
-//                    }
-//                }
-//            };
-//            showInfoControl.setTaskAction(taskAction);
-//            asyncTask = taskAction.doRetry();
-//        } else {
-//            asyncTask = buildTask(taskName, groupName, task, callback);
-//            asyncTask.serialExecute(false);
-//            taskScheduler.submit(asyncTask);
-//        }
         return asyncTask;
     }
 

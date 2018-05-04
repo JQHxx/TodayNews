@@ -13,6 +13,7 @@ public abstract class JHTask<T> extends AbsTask<T,IResult<T>> implements IResult
 
     @Override
     public final void onComplete(IResult<T> data) {
+        //根据不同的接口格式  去处理业务逻辑 包括错误码
         if (data.success()) {
             onSuccess(data);
         } else {

@@ -1,7 +1,6 @@
 package com.news.today.todaynews.edgesys.presenter;
 
 import com.news.today.http.parser.IResult;
-import com.news.today.http.util.JsonHelper;
 import com.news.today.todaynews.base.DaggerMvpPresenter;
 import com.news.today.todaynews.edgesys.entity.XiaoHua;
 import com.news.today.todaynews.edgesys.lf.IHttpTestContract;
@@ -34,16 +33,19 @@ public class HttpTestActivityPresenter extends DaggerMvpPresenter<IHttpTestContr
     @Override
     public void getNetData() {
         submitTask(new JHTask<XiaoHua>() {
+            //子线程
             @Override
             public IResult<XiaoHua> onBackground() throws Exception {
+                //网络请求，基本的解析操作
                 return manager.getXiaoHuaList(1);
             }
-
+            //主线程
             @Override
             public void onSuccess(IResult<XiaoHua> result) {
-                getView().showText(JsonHelper.toJSONString(result.data()));
+                //仅仅是数据回调
+                getView().showData(result.data());
             }
-
+            //主线程
             @Override
             public boolean onFailure(IResult result) {
                 return super.onFailure(result);

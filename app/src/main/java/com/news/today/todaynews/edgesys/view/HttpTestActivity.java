@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.news.today.http.util.JsonHelper;
 import com.news.today.todaynews.R;
 import com.news.today.todaynews.base.DaggerMvpActivity;
+import com.news.today.todaynews.edgesys.entity.XiaoHua;
 import com.news.today.todaynews.edgesys.lf.IHttpTestContract;
-import com.news.today.todaynews.edgesys.presenter.HttpTestActivityPresenter;
 
 import javax.inject.Inject;
 
@@ -36,7 +37,7 @@ public class HttpTestActivity extends DaggerMvpActivity implements IHttpTestCont
     }
 
     @Override
-    public void showText(String str) {
-        tvContent.setText(str);
+    public void showData(XiaoHua str) {
+        tvContent.setText(JsonHelper.toJSONString(str));
     }
 }

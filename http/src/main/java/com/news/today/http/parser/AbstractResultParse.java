@@ -23,7 +23,6 @@ public abstract class AbstractResultParse implements IResultParse {
         }
         result = parseResultCommon(json, type, iApi);
         if (result == null) {//返回结果为空
-            // CODEREVIEW:  代码审核：  自定义异常
             throw new NetworkResultParserException();
         }
 

@@ -106,4 +106,5 @@ public abstract class DaggerMvpActivity extends BaseMvpActivity implements HasSu
         }
         return dispatchingFragmentInjector;
     }
+
 }

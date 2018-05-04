@@ -19,10 +19,10 @@ public class JHApi extends LfApi {
         JHApi api = new JHApi();
         api.requestMethod = requestMethod;
         api.paramType = ParamType.normal;
+        api.host = Hosts.jhData;
         api.path = path;
         api.resultType = resultType;
         api.resultParse = DefaultResultParse.getInstance();
-        api.host = Hosts.jhData;
         return api;
     }
 }

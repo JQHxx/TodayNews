@@ -52,6 +52,7 @@ public abstract class AbstractTaskInstance<Result> extends FutureTask<Result> im
                             try {
                                 callback.onBeforeCall();
                             } catch (Throwable throwable) {
+                                throwable.printStackTrace();
                             }
                         }
                     });

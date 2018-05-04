@@ -44,4 +44,5 @@ public interface IApi {
     //缓存到本地的key值
     String getCacheKey();
 
+    void setCacheKey(String cacheKey);
 }

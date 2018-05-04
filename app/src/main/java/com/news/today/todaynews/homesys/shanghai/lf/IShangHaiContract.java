@@ -1,29 +1,31 @@
-package com.news.today.todaynews.edgesys.lf;
+package com.news.today.todaynews.homesys.shanghai.lf;
 
 import com.news.today.mvp.MvpControler;
 import com.news.today.mvp.lf.presenter.ILifeCyclePresenter;
 import com.news.today.mvp.lf.view.IMvpView;
-import com.news.today.todaynews.edgesys.entity.XiaoHua;
+import com.news.today.todaynews.base.DaggerMvpFragment;
+
+import java.util.ArrayList;
 
 /**
  * Created by anson on 2018/4/6.
  */
 
-public interface IHttpTestContract {
+public interface IShangHaiContract {
     interface IView extends IMvpView {
-        void showData(XiaoHua str);
+
     }
 
     interface IPresenter extends ILifeCyclePresenter {
-        void getNetData();
+        void initFragments();
+
+        String getDec();
+
+        ArrayList<DaggerMvpFragment> getFragments();
+        ArrayList<String> getTitles();
     }
 
     IView emptyView = new IView() {
-
-        @Override
-        public void showData(XiaoHua str) {
-
-        }
 
         @Override
         public MvpControler getMvpControler() {

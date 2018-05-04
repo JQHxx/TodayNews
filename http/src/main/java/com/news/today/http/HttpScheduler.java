@@ -89,7 +89,6 @@ public abstract class HttpScheduler {
         }
 
         if (result == null) {//网络异常
-            // CODEREVIEW:  代码审核： 自定义异常
             throw new NetWorkException(null);
         } else if (needPutCache) {
             //需要塞回缓存
