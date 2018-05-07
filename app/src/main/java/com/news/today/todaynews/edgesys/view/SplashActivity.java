@@ -29,7 +29,7 @@ public class SplashActivity extends DaggerMvpActivity implements ISplashContract
     @Inject
     ISplashContract.IPresenter mPresenter;
     @BindView(R.id.vv_splash)
-    CustomVideoView mVideoView;
+    CustomVideoView mVideoView;ht
     @BindView(R.id.tv_over)
     TextView mTextView;
 
@@ -76,7 +76,6 @@ public class SplashActivity extends DaggerMvpActivity implements ISplashContract
                     mVideoView.stopPlayback();
                 }
                 MainActivity.start(SplashActivity.this);
-//                startActivity(new Intent(SplashActivity.this,HttpTestActivity.class));
                 finish();
             }
         });

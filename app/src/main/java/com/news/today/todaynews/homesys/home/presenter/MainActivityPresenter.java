@@ -4,9 +4,9 @@ import com.news.today.todaynews.R;
 import com.news.today.todaynews.base.DaggerMvpFragment;
 import com.news.today.todaynews.base.DaggerMvpPresenter;
 import com.news.today.todaynews.homesys.home.lf.IMainActivityContract;
+import com.news.today.todaynews.homesys.shanghai.view.ShangHaiFragment;
 import com.news.today.todaynews.homesys.view.BeiJingFragment;
 import com.news.today.todaynews.homesys.view.HangZhouFragment;
-import com.news.today.todaynews.homesys.shanghai.view.ShangHaiFragments;
 import com.news.today.todaynews.homesys.view.ShenZhenFragment;
 
 import javax.inject.Inject;
@@ -113,7 +113,7 @@ public class MainActivityPresenter extends DaggerMvpPresenter<IMainActivityContr
         DaggerMvpFragment baseFragment = null;
         switch (index) {
             case 0:
-                baseFragment = ShangHaiFragments.newInstance();
+                baseFragment = ShangHaiFragment.newInstance();
                 break;
             case 1:
                 baseFragment = HangZhouFragment.newInstance();
@@ -149,9 +149,9 @@ public class MainActivityPresenter extends DaggerMvpPresenter<IMainActivityContr
     }
 
     @Override
-    public ShangHaiFragments getShangHaiFragment() {
+    public ShangHaiFragment getShangHaiFragment() {
         if (mainFragments != null && mainFragments[0] != null) {
-            return (ShangHaiFragments) mainFragments[0];
+            return (ShangHaiFragment) mainFragments[0];
         }
         return null;
     }

@@ -7,7 +7,7 @@ import com.news.today.todaynews.homesys.home.dagger.MostListFragmentProvide;
 import com.news.today.todaynews.homesys.home.view.MainActivity;
 import com.news.today.todaynews.homesys.shanghai.dagger.ShangHaiFragmentsProvide;
 import com.news.today.todaynews.homesys.shanghai.view.MostListFragment;
-import com.news.today.todaynews.homesys.shanghai.view.ShangHaiFragments;
+import com.news.today.todaynews.homesys.shanghai.view.ShangHaiFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -23,7 +23,7 @@ public abstract class IHomesysModule {
 
     @FragmentScope
     @ContributesAndroidInjector(modules = {ShangHaiFragmentsProvide.class})
-    public abstract ShangHaiFragments buildShangHaiFragments();
+    public abstract ShangHaiFragment buildShangHaiFragments();
 
     @FragmentScope
     @ContributesAndroidInjector(modules = {MostListFragmentProvide.class})

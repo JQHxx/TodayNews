@@ -4,7 +4,7 @@ import com.news.today.mvp.MvpControler;
 import com.news.today.mvp.lf.presenter.ILifeCyclePresenter;
 import com.news.today.mvp.lf.view.IMvpView;
 import com.news.today.todaynews.base.DaggerMvpFragment;
-import com.news.today.todaynews.homesys.shanghai.view.ShangHaiFragments;
+import com.news.today.todaynews.homesys.shanghai.view.ShangHaiFragment;
 
 /**
  * Created by anson on 2018/4/25.
@@ -31,7 +31,7 @@ public interface IMainActivityContract {
 
         void setCurrentFragmentIndex(int index);
 
-        ShangHaiFragments getShangHaiFragment();
+        ShangHaiFragment getShangHaiFragment();
 
     }
 

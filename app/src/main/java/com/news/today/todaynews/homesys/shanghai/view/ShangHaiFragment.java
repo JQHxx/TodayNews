@@ -26,7 +26,7 @@ import butterknife.BindView;
  * Created by anson on 2018/4/25.
  */
 
-public class ShangHaiFragments extends DaggerMvpFragment implements IShangHaiContract.IView {
+public class ShangHaiFragment extends DaggerMvpFragment implements IShangHaiContract.IView {
 
     @Inject
     IShangHaiContract.IPresenter mPresenter;
@@ -44,8 +44,8 @@ public class ShangHaiFragments extends DaggerMvpFragment implements IShangHaiCon
     Toolbar mToolbar;
 
 
-    public static ShangHaiFragments newInstance() {
-        ShangHaiFragments homeFragment = new ShangHaiFragments();
+    public static ShangHaiFragment newInstance() {
+        ShangHaiFragment homeFragment = new ShangHaiFragment();
         return homeFragment;
     }
 

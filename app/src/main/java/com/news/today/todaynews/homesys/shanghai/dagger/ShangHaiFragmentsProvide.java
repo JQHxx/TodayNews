@@ -1,8 +1,7 @@
 package com.news.today.todaynews.homesys.shanghai.dagger;
 
-import com.news.today.todaynews.annotation.ActivityScope;
 import com.news.today.todaynews.annotation.FragmentScope;
-import com.news.today.todaynews.homesys.shanghai.view.ShangHaiFragments;
+import com.news.today.todaynews.homesys.shanghai.view.ShangHaiFragment;
 import com.news.today.todaynews.homesys.shanghai.lf.IShangHaiContract;
 import com.news.today.todaynews.homesys.shanghai.presenter.ShangHaiPresenter;
 
@@ -16,7 +15,7 @@ import dagger.Provides;
 public class ShangHaiFragmentsProvide {
     @FragmentScope
     @Provides
-    public static IShangHaiContract.IView provideView(ShangHaiFragments activity) {
+    public static IShangHaiContract.IView provideView(ShangHaiFragment activity) {
         return activity;
     }
 
