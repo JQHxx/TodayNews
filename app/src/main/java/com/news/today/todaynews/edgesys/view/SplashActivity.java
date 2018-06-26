@@ -29,7 +29,7 @@ public class SplashActivity extends DaggerMvpActivity implements ISplashContract
     @Inject
     ISplashContract.IPresenter mPresenter;
     @BindView(R.id.vv_splash)
-    CustomVideoView mVideoView;ht
+    CustomVideoView mVideoView;
     @BindView(R.id.tv_over)
     TextView mTextView;
 

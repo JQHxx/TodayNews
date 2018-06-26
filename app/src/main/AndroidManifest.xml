@@ -32,6 +32,7 @@
 
         <activity android:name=".homesys.home.view.MainActivity" />
         <activity android:name=".edgesys.view.HttpTestActivity" />
+        <service android:name=".homesys.video.view.VideoPlayService" />
     </application>
 
 </manifest>

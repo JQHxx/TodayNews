@@ -16,20 +16,25 @@ import com.news.today.todaynews.R;
 import com.news.today.todaynews.base.DaggerMvpFragment;
 import com.news.today.todaynews.homesys.home.view.MainActivity;
 import com.news.today.todaynews.homesys.shanghai.lf.IShangHaiContract;
-import com.news.today.todaynews.homesys.test.MostTextView;
+import com.news.today.todaynews.homesys.video.IVideoContract;
+import com.news.today.todaynews.homesys.view.MostTextView;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
+import static com.news.today.todaynews.R.id.title_tv;
+
 /**
  * Created by anson on 2018/4/25.
  */
 
-public class ShangHaiFragment extends DaggerMvpFragment implements IShangHaiContract.IView {
-
+public class ShangHaiFragment extends DaggerMvpFragment implements IShangHaiContract.IView ,IVideoContract.IView{
+    //采用多p的形式去 这块的逻辑
     @Inject
     IShangHaiContract.IPresenter mPresenter;
+    @Inject
+    IVideoContract.IPresenter mVideoPresenter;
     @BindView(R.id.app_bar_layout)
     AppBarLayout appBarLayout;
     @BindView(R.id.tab)
@@ -38,7 +43,7 @@ public class ShangHaiFragment extends DaggerMvpFragment implements IShangHaiCont
     ViewPager contentVp;
     @BindView(R.id.tv_dec)
     MostTextView tvDec;
-    @BindView(R.id.title_tv)
+    @BindView(title_tv)
     TextView mTvTitle;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -60,12 +65,20 @@ public class ShangHaiFragment extends DaggerMvpFragment implements IShangHaiCont
         initView();
     }
 
+
     public void close() {
         tvDec.close();
     }
 
 
     private void initView() {
+        mTvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //处理播放逻辑
+                mVideoPresenter.handlePlayClick();
+            }
+        });
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -94,7 +107,6 @@ public class ShangHaiFragment extends DaggerMvpFragment implements IShangHaiCont
             }
         });
         tvDec.setDesc(mPresenter.getDec(), TextView.BufferType.NORMAL);
-
         contentVp.setAdapter(new FragmentStatePagerAdapter(getActivity().getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
