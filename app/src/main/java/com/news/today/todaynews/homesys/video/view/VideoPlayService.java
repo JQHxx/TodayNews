@@ -12,6 +12,7 @@ import com.news.today.todaynews.homesys.video.lf.IVideoPlayListener;
 import com.news.today.todaynews.homesys.video.sdk.PlayerState;
 import com.news.today.todaynews.homesys.video.sdk.lf.IMediaSource;
 import com.news.today.todaynews.homesys.video.sdk.lf.IPlayer;
+import com.news.today.todaynews.homesys.video.sdk.lf.IPlayerError;
 import com.news.today.todaynews.homesys.video.sdk.lf.IPlayerFactory;
 import com.news.today.todaynews.homesys.video.sdk.mediaplayer.GoogleMediaPlayerFactory;
 import com.news.today.todaynews.homesys.video.sdk.mediaplayer.GoogleMediaPlayerSource;
@@ -26,13 +27,77 @@ import java.util.Map;
  * Created by anson on 2018/5/9.
  */
 
-public class VideoPlayService extends Service{
+public class VideoPlayService extends Service implements IVideoPlayListener {
 
     private IBinder mBinder = new LocalBinder();
     private HashMap<String, IVideoPlayListener> mListeners;
     private SoftReference<HashMap<String, IVideoPlayListener>> weakReference;
     private PlayerState mState = PlayerState.IDLE;
     private IMediaSource mediaSource;
+    private IPlayerFactory mPlayerFactory;
+    private IPlayer mPlayer;
+
+    private interface CallbackInvoker {
+        void invoke (IVideoPlayListener callback);
+    }
+
+    private void doCallbackSafely (CallbackInvoker invoker) {
+        synchronized (this) {
+            if (weakReference != null && weakReference.get() != null) {
+                for (IVideoPlayListener listener : weakReference.get().values()) {
+                    if (listener != null) {
+                        invoker.invoke(listener);
+                    }
+                }
+            }
+        }
+    }
+
+    //播放器回调
+    @Override
+    public void onStateChanged(PlayerState state) {
+        //同步此时的播放状态
+        mState = state;
+        //同步所有子节点
+        doCallbackSafely(new CallbackInvoker() {
+            @Override
+            public void invoke( IVideoPlayListener callback) {
+                callback.onStateChanged(mState);
+            }
+        });
+    }
+
+    @Override
+    public void onDurationChanged(final int msec) {
+
+        doCallbackSafely(new CallbackInvoker() {
+            @Override
+            public void invoke( IVideoPlayListener callback) {
+                callback.onDurationChanged(msec);
+            }
+        });
+    }
+
+    @Override
+    public void onSeekComplete() {
+        doCallbackSafely(new CallbackInvoker() {
+            @Override
+            public void invoke( IVideoPlayListener callback) {
+                callback.onSeekComplete();
+            }
+        });
+    }
+
+    @Override
+    public void onError(final IPlayerError error) {
+        doCallbackSafely(new CallbackInvoker() {
+            @Override
+            public void invoke( IVideoPlayListener callback) {
+                callback.onError(error);
+            }
+        });
+    }
+
 
     public class LocalBinder extends Binder {
 
@@ -82,19 +147,31 @@ public class VideoPlayService extends Service{
         switch (mState) {
             case IDLE:
                 //创建播放器然后播放
-                IPlayerFactory playerFactory = new GoogleMediaPlayerFactory();
-                IPlayer player = playerFactory.createPlayer(mediaSource);
-                player.prepare(mediaSource);
+                if (mPlayerFactory == null) {
+                    mPlayerFactory = new GoogleMediaPlayerFactory();
+                }
+                if (mPlayer == null) {
+                    mPlayer = mPlayerFactory.createPlayer(mediaSource);
+                }
+                mPlayer.prepare(mediaSource);
+                mPlayer.setCallback(this);
                 break;
             case STARTED:
                 //暂停播放
+                if (mPlayer != null) {
+                    mPlayer.pause();
+                }
                 break;
             case PAUSED:
                 //开始播放
+                if (mPlayer != null) {
+                    mPlayer.start();
+                }
                 break;
             case COMPLETED:
             case ERROR:
                 //重新播放
+
                 break;
         }
     }

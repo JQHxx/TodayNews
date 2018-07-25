@@ -19,4 +19,5 @@ public abstract class IEdgesysModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = {HttpTestActivityProvide.class})
     public abstract HttpTestActivity buildHttpTestActivity();
+
 }

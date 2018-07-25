@@ -192,4 +192,9 @@ public class MainActivity extends DaggerMvpActivity implements IMainActivityCont
         getSupportFragmentManager().beginTransaction().hide(baseFragment).commit();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        setResult(200);
+    }
 }

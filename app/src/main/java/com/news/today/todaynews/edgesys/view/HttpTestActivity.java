@@ -1,5 +1,6 @@
 package com.news.today.todaynews.edgesys.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -9,6 +10,7 @@ import com.news.today.todaynews.R;
 import com.news.today.todaynews.base.DaggerMvpActivity;
 import com.news.today.todaynews.edgesys.entity.XiaoHua;
 import com.news.today.todaynews.edgesys.lf.IHttpTestContract;
+import com.news.today.todaynews.homesys.home.view.MainActivity;
 
 import javax.inject.Inject;
 
@@ -39,5 +41,16 @@ public class HttpTestActivity extends DaggerMvpActivity implements IHttpTestCont
     @Override
     public void showData(XiaoHua str) {
         tvContent.setText(JsonHelper.toJSONString(str));
+        tvContent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(HttpTestActivity.this, MainActivity.class),200);
+            }
+        });
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
     }
 }

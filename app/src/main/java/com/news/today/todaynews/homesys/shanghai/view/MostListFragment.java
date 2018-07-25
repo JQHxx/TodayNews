@@ -37,7 +37,6 @@ public class MostListFragment extends DaggerMvpFragment implements IHttpTestCont
     public void afterViewBind(View rootView, Bundle savedInstanceState) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mPresenter.getNetData();
-
     }
 
 

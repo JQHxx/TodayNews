@@ -1,5 +1,8 @@
 package com.news.today.todaynews.edgesys.presenter;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
+
 import com.news.today.http.parser.IResult;
 import com.news.today.todaynews.base.DaggerMvpPresenter;
 import com.news.today.todaynews.edgesys.entity.XiaoHua;
@@ -15,8 +18,12 @@ import javax.inject.Inject;
 
 public class HttpTestActivityPresenter extends DaggerMvpPresenter<IHttpTestContract.IView> implements IHttpTestContract.IPresenter {
 
+
+    public MutableLiveData<XiaoHua> data = new MutableLiveData<>();
+
     @Inject
     HttpTestManager manager;
+
 
     @Inject
     public HttpTestActivityPresenter(IHttpTestContract.IView view) {
@@ -29,6 +36,9 @@ public class HttpTestActivityPresenter extends DaggerMvpPresenter<IHttpTestContr
         return IHttpTestContract.emptyView;
     }
 
+    public LiveData<XiaoHua> getData() {
+        return data;
+    }
 
     @Override
     public void getNetData() {
@@ -43,7 +53,7 @@ public class HttpTestActivityPresenter extends DaggerMvpPresenter<IHttpTestContr
             @Override
             public void onSuccess(IResult<XiaoHua> result) {
                 //仅仅是数据回调
-                getView().showData(result.data());
+                data.setValue(result.data());
             }
             //主线程
             @Override
@@ -52,4 +62,7 @@ public class HttpTestActivityPresenter extends DaggerMvpPresenter<IHttpTestContr
             }
         });
     }
+
+
+
 }

@@ -73,7 +73,18 @@ public class VideoPresenter extends DaggerMvpPresenter<IVideoContract.IView> imp
 
     @Override
     public void onStateChanged(PlayerState state) {
+        switch (state) {
+            case STARTED:
+//                getView().showStarted();
+                break;
+//            case ERROR:
+//            case END:
+//            case COMPLETED:
+//            case IDLE:
+//            case PREPARED:
+//            case PREPARING:
 
+        }
     }
 
     @Override
