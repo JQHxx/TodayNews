@@ -1,6 +1,5 @@
 package com.news.today.todaynews.edgesys.presenter;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 import com.news.today.http.parser.IResult;
@@ -36,7 +35,8 @@ public class HttpTestActivityPresenter extends DaggerMvpPresenter<IHttpTestContr
         return IHttpTestContract.emptyView;
     }
 
-    public LiveData<XiaoHua> getData() {
+    @Override
+    public MutableLiveData<XiaoHua> getXiaoHuaData() {
         return data;
     }
 

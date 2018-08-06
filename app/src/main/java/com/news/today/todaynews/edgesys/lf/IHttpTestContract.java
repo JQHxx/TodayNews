@@ -1,5 +1,7 @@
 package com.news.today.todaynews.edgesys.lf;
 
+import android.arch.lifecycle.MutableLiveData;
+
 import com.news.today.mvp.MvpControler;
 import com.news.today.mvp.lf.presenter.ILifeCyclePresenter;
 import com.news.today.mvp.lf.view.IMvpView;
@@ -16,6 +18,7 @@ public interface IHttpTestContract {
 
     interface IPresenter extends ILifeCyclePresenter {
         void getNetData();
+        MutableLiveData<XiaoHua> getXiaoHuaData();
     }
 
     IView emptyView = new IView() {

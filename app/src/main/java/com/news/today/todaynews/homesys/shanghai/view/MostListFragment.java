@@ -1,6 +1,8 @@
 package com.news.today.todaynews.homesys.shanghai.view;
 
+import android.arch.lifecycle.Observer;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -37,6 +39,12 @@ public class MostListFragment extends DaggerMvpFragment implements IHttpTestCont
     public void afterViewBind(View rootView, Bundle savedInstanceState) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mPresenter.getNetData();
+        mPresenter.getXiaoHuaData().observe(this, new Observer<XiaoHua>() {
+            @Override
+            public void onChanged(@Nullable XiaoHua xiaoHua) {
+                showData(xiaoHua);
+            }
+        });
     }
 
 
