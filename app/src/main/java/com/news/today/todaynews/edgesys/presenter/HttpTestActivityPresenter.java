@@ -1,6 +1,5 @@
 package com.news.today.todaynews.edgesys.presenter;
 
-import com.base.rxjava.RxSchedulers;
 import com.base.rxjava.subscriber.ErrorHandlerSubscriber;
 import com.news.today.http.parser.IResult;
 import com.news.today.http.util.JsonHelper;
@@ -37,8 +36,7 @@ public class HttpTestActivityPresenter extends DaggerMvpPresenter<IHttpTestContr
     public void getNetData() {
 
 
-       manager.getXiaoHuaOb(1).compose(RxSchedulers.<IResult<XiaoHua>>io_main())
-               .subscribe(new ErrorHandlerSubscriber<IResult<XiaoHua>>(mContext) {
+       manager.getXiaoHua(1).subscribe(new ErrorHandlerSubscriber<IResult<XiaoHua>>(mContext) {
            @Override
            public void onNext(IResult<XiaoHua> result) {
                getView().showText(JsonHelper.toJSONString(result.data()));

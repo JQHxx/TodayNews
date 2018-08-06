@@ -1,6 +1,10 @@
 package com.news.today.todaynews.edgesys.manager;
 
+import com.base.rxjava.RxSchedulers;
+import com.base.rxjava.observable.RxObservable;
 import com.news.today.http.LfManager;
+import com.news.today.http.parser.IResult;
+import com.news.today.todaynews.edgesys.entity.XiaoHua;
 import com.news.today.todaynews.helper.ContextHelper;
 
 import java.util.HashMap;
@@ -9,7 +13,6 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 
@@ -26,7 +29,7 @@ public class HttpTestManager extends LfManager {
     }
 
     //http://v.juhe.cn/joke/content/list.php?time=1523948972&sort=desc&key=bbc57dd5e4f05991aff09eafd2e667e0&page=1&pagesize=10
-    public Observable getXiaoHuaOb(final int currentPage) {
+   /* public Observable getXiaoHuaOb(final int currentPage) {
         return Observable.create(new ObservableOnSubscribe() {
             @Override
             public void subscribe(ObservableEmitter e) {
@@ -38,7 +41,21 @@ public class HttpTestManager extends LfManager {
                 params.put("key", "bbc57dd5e4f05991aff09eafd2e667e0");
                 e.onNext(execute(ContextHelper.getAppContext(), TestActivityApis.getXiaoHuaList, params));
             }
-        });
-    }
+        }).compose(RxSchedulers.<IResult<XiaoHua>>io_main());
+    }*/
+    public RxObservable getXiaoHua(final int currentPage) {
 
+        return (RxObservable) RxObservable.creats(new ObservableOnSubscribe() {
+            @Override
+            public void subscribe(ObservableEmitter e) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                params.put("sort", "desc");
+                params.put("page", currentPage);
+                params.put("pagesize", 10);
+                params.put("time", System.currentTimeMillis() / 1000);
+                params.put("key", "bbc57dd5e4f05991aff09eafd2e667e0");
+                e.onNext(execute(ContextHelper.getAppContext(), TestActivityApis.getXiaoHuaList, params));
+            }
+        }).compose(RxSchedulers.<IResult<XiaoHua>>io_main());
+    }
 }
