@@ -28,14 +28,6 @@ public class MainActivityPresenter extends DaggerMvpPresenter<IMainActivityContr
 
 
     @Override
-    protected IMainActivityContract.IView getEmptyView() {
-        return IMainActivityContract.emptyView;
-    }
-
-
-
-
-    @Override
     public void initHomeFragmet() {
         currentFragmentIndex = 0;
         replaceFragment(currentFragmentIndex);

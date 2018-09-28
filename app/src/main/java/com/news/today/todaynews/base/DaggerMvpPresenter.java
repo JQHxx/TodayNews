@@ -3,12 +3,15 @@ package com.news.today.todaynews.base;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.lofter.android.mvp.MvpEmptyViewFactory;
 import com.news.today.mvp.base.BaseMvpPresenter;
 import com.news.today.mvp.lf.view.IMvpView;
+import com.news.today.task.AbsTask;
 import com.news.today.task.AsyncTaskInstance;
 import com.news.today.task.helper.TaskHelper;
 import com.news.today.task.lf.IGroup;
-import com.news.today.task.AbsTask;
+
+import java.lang.reflect.ParameterizedType;
 
 /**
  * Created by anson on 2018/4/6.
@@ -92,4 +95,14 @@ public abstract class DaggerMvpPresenter<T extends IMvpView> extends BaseMvpPres
         return TaskHelper.submitTask(groupName(),task,task );
     }
 
+    @Override
+    protected T getEmptyView() {
+        Class mViewClass = (Class) ((ParameterizedType) (this.getClass().getGenericSuperclass())).getActualTypeArguments()[0];
+        try {
+            return (T) MvpEmptyViewFactory.create(mViewClass);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

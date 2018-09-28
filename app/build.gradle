@@ -41,4 +41,7 @@ dependencies {
     compile project(':task')
     compile project(':http')
     compile project(':tools')
+    //apt
+    compile project(':annotation')
+    annotationProcessor project(':apt')
 }
