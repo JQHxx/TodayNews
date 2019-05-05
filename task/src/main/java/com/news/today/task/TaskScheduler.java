@@ -39,7 +39,7 @@ public final class TaskScheduler {
 
     private TaskScheduler() {
         /**
-         * 用于消息调度的线程
+         * 用于消息调度的线程   主线程给子线程发消息
          */
         HandlerThread handlerThread = new HandlerThread("task-handler-thread");
         handlerThread.start();

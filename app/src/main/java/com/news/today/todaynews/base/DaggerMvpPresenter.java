@@ -3,13 +3,13 @@ package com.news.today.todaynews.base;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.lofter.android.mvp.MvpEmptyViewFactory;
 import com.news.today.mvp.base.BaseMvpPresenter;
 import com.news.today.mvp.lf.view.IMvpView;
 import com.news.today.task.AbsTask;
 import com.news.today.task.AsyncTaskInstance;
 import com.news.today.task.helper.TaskHelper;
 import com.news.today.task.lf.IGroup;
+import com.todaynews.mvp.MvpEmptyViewFactory;
 
 import java.lang.reflect.ParameterizedType;
 

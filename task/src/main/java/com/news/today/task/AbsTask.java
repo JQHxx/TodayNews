@@ -8,6 +8,6 @@ import com.news.today.task.lf.ITaskCallback;
  */
 
 
-public abstract class AbsTask<T,Result> implements ITaskBackground<Result>,ITaskCallback<Result>{
+public abstract class AbsTask<Result> implements ITaskBackground<Result>,ITaskCallback<Result>{
 
 }

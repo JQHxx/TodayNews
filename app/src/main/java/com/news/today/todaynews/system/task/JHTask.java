@@ -9,7 +9,7 @@ import com.news.today.task.AbsTask;
  * Created by anson on 2018/4/8.
  */
 
-public abstract class JHTask<T> extends AbsTask<T,IResult<T>> implements IResultCallBack<T> {
+public abstract class JHTask<T> extends AbsTask<IResult<T>> implements IResultCallBack<T> {
 
     @Override
     public final void onComplete(IResult<T> data) {

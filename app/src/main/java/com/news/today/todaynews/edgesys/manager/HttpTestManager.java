@@ -15,14 +15,14 @@ import javax.inject.Singleton;
  */
 
 @Singleton
-public class HttpTestManager extends LfManager{
+public class HttpTestManager<T> extends LfManager{
 
     @Inject
     public HttpTestManager() {
 
     }
     //http://v.juhe.cn/joke/list.php?time=1523948972&sort=desc&key=bbc57dd5e4f05991aff09eafd2e667e0&page=1&pagesize=10
-    public IResult getXiaoHuaList(int currentPage) {
+    public IResult<T> getXiaoHuaList(int currentPage) {
         Map<String, Object> params = new HashMap<>();
         params.put("sort","desc");
         params.put("page",currentPage);
